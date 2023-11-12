@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://obdgkjqvb2li" path="res://images/Linux-Mascot.png" id="2_i520t"]
 [ext_resource type="Texture2D" uid="uid://c633nv1kfq8r0" path="res://images/Windows-Mascot.png" id="3_i5ugp"]
 [ext_resource type="Texture2D" uid="uid://c5v7beioopjv2" path="res://images/MacOS-Mascot.png" id="4_om7k6"]
+[ext_resource type="Texture2D" uid="uid://y2yedboo6xly" path="res://images/Chrome-icon.png" id="5_4d51y"]
+[ext_resource type="Texture2D" uid="uid://djr0ryr0i1uif" path="res://images/Motherboard-icon.png" id="6_hv0ay"]
 
 [node name="Selection Menu" type="Control"]
 layout_mode = 3
@@ -40,12 +42,14 @@ popup/item_2/id = 2
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "Chrome"
+popup/item_0/icon = ExtResource("5_4d51y")
 popup/item_0/id = 0
 
 [node name="Map" type="OptionButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "Motherboard"
+popup/item_0/icon = ExtResource("6_hv0ay")
 popup/item_0/id = 0
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
