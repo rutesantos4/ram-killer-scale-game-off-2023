@@ -15,6 +15,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_govjd")
+option_button_operating_system_path = NodePath("MarginContainer/VBoxContainer/Operating system mascot")
+option_button_browser_to_fight_path = NodePath("MarginContainer/VBoxContainer/Browser to fight")
+option_button_map_path = NodePath("MarginContainer/VBoxContainer/Map")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
