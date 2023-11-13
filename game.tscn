@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ssr62ur7abft"]
+[gd_scene load_steps=6 format=3 uid="uid://ssr62ur7abft"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_u70lx"]
 [ext_resource type="Texture2D" uid="uid://3l56ftgtm566" path="res://icon.svg" id="3_2p50g"]
@@ -6,16 +6,31 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgd7c"]
 radius = 47.5184
 
+[sub_resource type="Gradient" id="Gradient_o5tih"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8xb3q"]
+gradient = SubResource("Gradient_o5tih")
+
 [node name="Game" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_u70lx")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="PlayerSprite2D" type="Sprite2D" parent="Player"]
 modulate = Color(0.0666667, 0.0823529, 1, 1)
 position = Vector2(2.38419e-07, -2.38419e-07)
 scale = Vector2(0.757812, 0.675781)
 texture = ExtResource("3_2p50g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_vgd7c")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="Background" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(2.49997, -0.999984)
+scale = Vector2(4.51172, 650)
+texture = SubResource("GradientTexture1D_8xb3q")
