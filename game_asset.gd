@@ -2,14 +2,19 @@ extends Object
 class_name GameAsset
 
 # Member variables.
+var _name : String
 var _full_size_image : Texture2D
 var _icon_size_image : Texture2D
 
 # Constructor
-func _init(full_size_image : String, icon_size_image : String):
+func _init(name : String, full_size_image : String, icon_size_image : String):
+	_name = name
 	_full_size_image = file_to_image(full_size_image);
 	_icon_size_image = file_to_image(icon_size_image);
 	
+func get_name():
+	return _name
+
 func get_full_size_image():
 	return _full_size_image
 
