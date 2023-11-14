@@ -7,6 +7,14 @@ const DASH_SPEED_MULTIPLIER = 4.5
 func _shouldDash():
 	return Input.is_key_pressed(KEY_SHIFT)
 
+func _ready():
+	# Set the player image
+	$PlayerSprite2D.texture = SceneSwitcher.get_game_info().get_player_image()
+	# Set the player position
+	$PlayerSprite2D.position.x = 0
+	$PlayerSprite2D.position.y = 0
+
+
 func _physics_process(delta):
 	var target : Vector2 = get_global_mouse_position()
 	var input_distance : float = position.distance_to(target)

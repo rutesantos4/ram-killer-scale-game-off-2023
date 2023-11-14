@@ -3,14 +3,18 @@ class_name GameInfo
 
 # Member variables.
 var _player_image : Texture2D
-var _operation_system_image : Texture2D
+var _enemy_image : Texture2D
 var _map_image : Texture2D
 
 # Constructor
-func _init(player_image, operation_system_image, map_image):
-	_player_image = player_image;
-	_operation_system_image = operation_system_image;
-	_map_image = map_image;
+func _init(player, enemy, map):
+	_player_image = player;
+	_enemy_image = enemy;
+	_map_image = map;
 
 func get_player_image():
 	return _player_image
+
+func get_map_image():
+	return _map_image
+
