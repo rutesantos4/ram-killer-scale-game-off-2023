@@ -34,15 +34,12 @@ layout_mode = 2
 [node name="Operating system mascot" type="OptionButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 expand_icon = true
-selected = 0
 
 [node name="Browser to fight" type="OptionButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-selected = 0
 
 [node name="Map" type="OptionButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-selected = 0
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

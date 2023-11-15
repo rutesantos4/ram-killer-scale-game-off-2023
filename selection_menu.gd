@@ -13,17 +13,17 @@ func _ready():
 	var enemies_size = GameAssetsFactory.Enemies.size()
 	for i in range(0, enemies_size):
 		var enemy = GameAssetsFactory.Enemies[i]
-		option_button_browser_to_fight.add_icon_item(enemy.get_icon_image(), enemy.get_name(), i)
+		option_button_browser_to_fight.add_icon_item(enemy.xs(), enemy.get_name(), i)
 		
 	var players_size = GameAssetsFactory.Players.size()
 	for i in range(0, players_size):
 		var player = GameAssetsFactory.Players[i]
-		option_button_operating_system.add_icon_item(player.get_icon_image(), player.get_name(), i)
+		option_button_operating_system.add_icon_item(player.xs(), player.get_name(), i)
 		
 	var maps_size = GameAssetsFactory.Maps.size()
 	for i in range(0, maps_size):
 		var map = GameAssetsFactory.Maps[i]
-		option_button_map.add_icon_item(map.get_icon_image(), map.get_name(), i)
+		option_button_map.add_icon_item(map.xs(), map.get_name(), i)
 	
 
 func _on_back_pressed():
@@ -34,7 +34,11 @@ func _on_play_pressed():
 	var enemy_selected = option_button_browser_to_fight.get_selected_id();
 	var map_selected = option_button_map.get_selected_id();
 	
-	SceneSwitcher.change_scene("res://game.tscn", GameInfo.new(
-		GameAssetsFactory.Players[player_selected].get_full_size_image(),
-		GameAssetsFactory.Enemies[enemy_selected].get_full_size_image(),
-		GameAssetsFactory.Maps[map_selected].get_full_size_image()))
+	SceneSwitcher.change_scene(
+		"res://game.tscn", 
+		GameInfo.new(
+			GameAssetsFactory.Players[player_selected].m(),
+			GameAssetsFactory.Enemies[enemy_selected].m(),
+			GameAssetsFactory.Maps[map_selected].xl()
+		)
+	)
