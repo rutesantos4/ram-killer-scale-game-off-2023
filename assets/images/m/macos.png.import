@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcbtiumc6jb4"
-path="res://.godot/imported/Chrome-icon-full-size.png-607891d28380ed978a0a6c963775563f.ctex"
+uid="uid://5o05h6mlix0x"
+path="res://.godot/imported/macos.png-675d1050d78c4439e5c5d6db2162f086.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Chrome-icon-full-size.png"
-dest_files=["res://.godot/imported/Chrome-icon-full-size.png-607891d28380ed978a0a6c963775563f.ctex"]
+source_file="res://assets/images/m/macos.png"
+dest_files=["res://.godot/imported/macos.png-675d1050d78c4439e5c5d6db2162f086.ctex"]
 
 [params]
 

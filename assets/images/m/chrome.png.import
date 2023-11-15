@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5o05h6mlix0x"
-path="res://.godot/imported/MacOS-full-size.png-39991aabe51787548de576dc9f086a4e.ctex"
+uid="uid://dcbtiumc6jb4"
+path="res://.godot/imported/chrome.png-e59bdf67da3b31579e76797eec8d854d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/MacOS-full-size.png"
-dest_files=["res://.godot/imported/MacOS-full-size.png-39991aabe51787548de576dc9f086a4e.ctex"]
+source_file="res://assets/images/m/chrome.png"
+dest_files=["res://.godot/imported/chrome.png-e59bdf67da3b31579e76797eec8d854d.ctex"]
 
 [params]
 
