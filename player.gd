@@ -26,5 +26,14 @@ func _physics_process(delta):
 	
 	velocity = input_direction * speed
 	velocity = velocity.normalized() * max(MIN_SPEED, max(speed, input_distance))
-		
+	
 	move_and_slide()
+	
+func _process(delta):
+	# Get all cookies present in the map
+	var cookies = get_tree().get_nodes_in_group("Cookie")
+	for cookie in cookies:
+		# If player overlaps cookie
+		if $Area2D.overlaps_area(cookie):
+			# Remove cookie
+			cookie.queue_free()
