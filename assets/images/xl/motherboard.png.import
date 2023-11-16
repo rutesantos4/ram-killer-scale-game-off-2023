@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c633nv1kfq8r0"
-path="res://.godot/imported/Windows-Mascot.png-2d09aa19b7ff80e86bad71e7b28cc7a7.ctex"
+uid="uid://c6j3x323khffg"
+path="res://.godot/imported/motherboard.png-40b19ac93da1b212f6313281127b846e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Windows-Mascot.png"
-dest_files=["res://.godot/imported/Windows-Mascot.png-2d09aa19b7ff80e86bad71e7b28cc7a7.ctex"]
+source_file="res://assets/images/xl/motherboard.png"
+dest_files=["res://.godot/imported/motherboard.png-40b19ac93da1b212f6313281127b846e.ctex"]
 
 [params]
 
