@@ -13,6 +13,11 @@ func _ready():
 	# Set the player position
 	$PlayerSprite2D.position.x = 0
 	$PlayerSprite2D.position.y = 0
+	# Set the player collision radius
+	var player_size : Vector2 = $PlayerSprite2D.texture.get_size()
+	var new_shape = CircleShape2D.new()
+	new_shape.radius = max(player_size.x, player_size.y) / 4
+	$Area2D/PlayerCollisionShape.shape = new_shape
 
 
 func _physics_process(delta):
@@ -28,7 +33,8 @@ func _physics_process(delta):
 	velocity = velocity.normalized() * max(MIN_SPEED, max(speed, input_distance))
 	
 	move_and_slide()
-	
+
+
 func _process(delta):
 	# Get all cookies present in the map
 	var cookies = get_tree().get_nodes_in_group("Cookie")
