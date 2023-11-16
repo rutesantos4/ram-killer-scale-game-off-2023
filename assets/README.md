@@ -5,7 +5,7 @@ This document keeps track of all assets used in the game
 ## Images
 
 The following table keeps track of all groups of images used as assets in the game. All images should fall into one of the groups,
-respect their their minimum and maximum boundaries, be transparent (`png`) and shared under a free or attributed license.
+respect their minimum and maximum boundaries, be transparent (`png`) and shared under a free or attributed license.
 
 |Group|Min Size|Max Size|
 |----|--------|--------|
