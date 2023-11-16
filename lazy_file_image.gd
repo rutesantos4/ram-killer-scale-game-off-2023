@@ -10,6 +10,6 @@ func _init(
 
 func value():
 	if(!_value):
-		_value = ImageTexture.create_from_image(Image.load_from_file(_file_path))
+		_value = load(_file_path)
 	
 	return _value
