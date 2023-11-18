@@ -2,15 +2,24 @@ extends Enemy
 
 class_name Browser
 
+var _shock_skin: SkinAsset
+
 func _init(
 	skin: SkinAsset,
 	initial_position: Vector2,
-	initial_memory_size: float
-): super(skin, initial_position, initial_memory_size)
+	initial_memory_size: float,
+	shock_skin: SkinAsset
+): 
+	super(skin, initial_position, initial_memory_size)
 	
-func fire():
-	#TODO: implement
-	pass
+	_shock_skin = shock_skin
+	
+func fire(target_position: Vector2):
+	return ElectricalShock.new(
+		_shock_skin,
+		position,
+		target_position
+	)
 
 func spawn():
 	var tabs_to_spawn = randi_range(0, 6)
