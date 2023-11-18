@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://tp1h7mfpi77k"]
+[gd_scene load_steps=4 format=3 uid="uid://dlbk2w4f6hbnv"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_71wqg"]
-[ext_resource type="Texture2D" uid="uid://dcbtiumc6jb4" path="res://assets/images/m/chrome.png" id="2_pnsir"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p0tfe"]
 
@@ -10,8 +9,7 @@
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_71wqg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_pnsir")
+[node name="EnemySprite2D" type="Sprite2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
 

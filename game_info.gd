@@ -15,6 +15,9 @@ func _init(player, enemy, map):
 func get_player_image():
 	return _player_image
 
+func get_enemy_image():
+	return _enemy_image
+
 func get_map_image():
 	return _map_image
 

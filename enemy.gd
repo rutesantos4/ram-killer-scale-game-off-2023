@@ -8,8 +8,12 @@ var player : Node
 var closest_cookie_in_sight : Node
 
 func _ready():
+	# Set player
 	player = get_parent().get_node("Player")
-	var enemy_size : Vector2 = $Sprite2D.texture.get_size()
+	# Set the enemy image
+	$EnemySprite2D.texture = SceneSwitcher.get_game_info().get_enemy_image()
+	# Set the enemy collision radius
+	var enemy_size : Vector2 = $EnemySprite2D.texture.get_size()
 	var new_shape = CircleShape2D.new()
 	new_shape.radius = max(enemy_size.x, enemy_size.y) / 4
 	$Area2D/CollisionShape2D.shape = new_shape
