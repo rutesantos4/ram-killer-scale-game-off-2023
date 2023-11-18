@@ -1,12 +1,12 @@
-extends Object
+extends PositionalEntity
 
 class_name Cookie
 
-var _skin: SkinAsset
 var memory_size: float
 
 func _init(
-	skin: SkinAsset
+	skin: SkinAsset,
+	initial_position: Vector2
 ):
-	_skin = skin
+	super(skin, initial_position)
 	memory_size = 10

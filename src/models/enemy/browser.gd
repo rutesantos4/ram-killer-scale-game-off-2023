@@ -4,8 +4,9 @@ class_name Browser
 
 func _init(
 	skin: SkinAsset,
-	initial_size: float
-): super(skin, initial_size)
+	initial_position: Vector2,
+	initial_memory_size: float
+): super(skin, initial_position, initial_memory_size)
 	
 func fire():
 	#TODO: implement
@@ -22,6 +23,7 @@ func spawn():
 		tabs.push_front(
 			Tab.new(
 				_skin,
+				position, #TODO: https://github.com/rutesantos4/ram-killer-scale-game-off-2023/issues/42
 				tab_memory_size
 			)
 		)

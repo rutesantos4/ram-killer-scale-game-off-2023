@@ -1,17 +1,17 @@
-extends Object
+extends PositionalEntity
 
 class_name Player
 
 var health: float
 var energy: float
 var points: float
-var _skin: SkinAsset
-
 
 func _init(
-	skin: SkinAsset
+	skin: SkinAsset,
+	initial_position: Vector2
 ):
-	_skin = skin
+	super(skin, initial_position)
+
 	health = 100
 	energy = 100
 

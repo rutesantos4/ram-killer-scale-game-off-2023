@@ -1,10 +1,9 @@
-extends Object
+extends PositionalEntity
 
 class_name ElectricalShock
 
-var _skin: SkinAsset
-
 func _init(
-	skin: SkinAsset
+	skin: SkinAsset,
+	initial_position: Vector2
 ):
-	_skin = skin
+	super(skin, initial_position)
