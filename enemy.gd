@@ -19,14 +19,14 @@ func _ready():
 	$Area2D/CollisionShape2D.shape = new_shape
 
 func _physics_process(delta):
-	update_velocity()
+	move_enemy()
 	try_eat_cookies()
 	move_and_slide()
 
-func update_velocity():
+func move_enemy():
 	if (is_player_in_sight()):
 		move_to_player()
-		closest_cookie_in_sight = null
+		reset_closest_cookie()
 	else:
 		move_to_cookie()
 
@@ -42,7 +42,7 @@ func move_to_player():
 
 func move_to_cookie():
 	closest_cookie_in_sight = closest_cookie()
-	if(closest_cookie):
+	if(closest_cookie_in_sight):
 		var move_direction = closest_cookie_in_sight.position - position
 		velocity = move_direction.normalized() * SPEED
 
@@ -57,7 +57,8 @@ func closest_cookie():
 	var closest_cookie = cookies[0]
 	for cookie in cookies:
 		var cookie_distance = abs(position - cookie.position).length()
-		if(cookie_distance < closest_cookie.position.length()):
+		var closest_cookie_distance = abs(position - closest_cookie.position).length()
+		if(cookie_distance < closest_cookie_distance):
 			closest_cookie = cookie
 			
 	return closest_cookie
@@ -70,3 +71,6 @@ func try_eat_cookies():
 			if(cookie == closest_cookie_in_sight):
 				closest_cookie_in_sight = null
 			cookie.queue_free()
+
+func reset_closest_cookie():
+	closest_cookie_in_sight = null
