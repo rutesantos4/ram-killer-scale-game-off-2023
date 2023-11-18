@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 const IN_SIGHT_DISTANCE_LIMIT = 400
 const SPEED = 50.0
-const LIMIT = 0.5
 
 var player : Node
 var closest_cookie_in_sight : Node
