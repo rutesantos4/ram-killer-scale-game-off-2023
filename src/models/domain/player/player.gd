@@ -8,6 +8,8 @@ var health: float
 var energy: float
 var points: float
 
+var renew_energy_timer: Timer
+
 func _init(
 	skin: SkinAsset,
 	initial_position: Vector2
@@ -22,6 +24,9 @@ func can_dash():
 
 func dash():
 	energy -= _DASH_ENERGY_CONSUMPTION
+	
+func recover():
+	energy += _DASH_ENERGY_CONSUMPTION
 
 func clean(cookie: Cookie):
 	points += (cookie.memory_size * 2)
