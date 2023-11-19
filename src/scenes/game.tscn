@@ -40,6 +40,10 @@ debug_color = Color(0.294118, 0.498039, 0.996078, 0.419608)
 script = ExtResource("3_0a66y")
 cookie = ExtResource("3_iygoq")
 
+[node name="TabSpawner" type="Node2D" parent="."]
+script = ExtResource("7_cn7lt")
+tab = ExtResource("8_6rp2i")
+
 [node name="Enemy" parent="." instance=ExtResource("6_iur2d")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
