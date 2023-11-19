@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://src/nodes/cookie_spawner.gd" id="3_0a66y"]
 [ext_resource type="PackedScene" uid="uid://bhgmiw0eo22ii" path="res://src/scenes/cookie.tscn" id="3_iygoq"]
 [ext_resource type="PackedScene" uid="uid://dlbk2w4f6hbnv" path="res://src/scenes/enemy.tscn" id="6_iur2d"]
+[ext_resource type="Script" path="res://src/nodes/energy_bar.gd" id="7_njvvk"]
 [ext_resource type="PackedScene" uid="uid://con0vq264ki3o" path="res://src/scenes/map.tscn" id="6_qrrdu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oqr56"]
@@ -41,4 +42,24 @@ cookie = ExtResource("3_iygoq")
 
 [node name="Enemy" parent="." instance=ExtResource("6_iur2d")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EnergyBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -145.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.686275, 0.498039, 0.121569, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+fill_mode = 3
+script = ExtResource("7_njvvk")
+
+[connection signal="player_energy_updated" from="Player" to="CanvasLayer/EnergyBar" method="_on_player_energy_updated"]
 [node name="Map" parent="." instance=ExtResource("6_qrrdu")]

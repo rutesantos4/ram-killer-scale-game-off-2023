@@ -3,8 +3,11 @@ extends CharacterBody2D
 const MAX_SPEED = 250.0
 const MIN_SPEED = 50.0
 const DASH_SPEED_MULTIPLIER = 4.5
+const SEC_UNTIL_ENERGY_RENEWAL = 2.0
 
 var player: Player
+
+signal player_energy_updated
 
 func _ready():
 	player = SceneSwitcher.get_game_state().player
@@ -27,7 +30,7 @@ func _physics_process(delta):
 	
 	if(wants_to_dash() and player.can_dash()):
 		speed *= DASH_SPEED_MULTIPLIER
-		player.dash()
+		on_player_dash()
 	
 	velocity = input_direction * speed
 	velocity = velocity.normalized() * max(MIN_SPEED, max(speed, input_distance))
@@ -47,3 +50,12 @@ func _process(delta):
 
 func wants_to_dash():
 	return Input.is_key_pressed(KEY_SHIFT)
+	
+func on_player_dash():
+	player.dash()
+	player_energy_updated.emit()
+	get_tree().create_timer(2).connect("timeout", self.renew_energy)
+
+func renew_energy():
+	player.recover()
+	player_energy_updated.emit()
