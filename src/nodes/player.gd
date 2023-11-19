@@ -6,6 +6,8 @@ const DASH_SPEED_MULTIPLIER = 4.5
 
 var player: Player
 
+signal player_dashed
+
 func _ready():
 	player = SceneSwitcher.get_game_state().player
 	# Set the player image
@@ -28,6 +30,7 @@ func _physics_process(delta):
 	if(wants_to_dash() and player.can_dash()):
 		speed *= DASH_SPEED_MULTIPLIER
 		player.dash()
+		player_dashed.emit()
 	
 	velocity = input_direction * speed
 	velocity = velocity.normalized() * max(MIN_SPEED, max(speed, input_distance))
