@@ -10,3 +10,5 @@ func _init(
 ):
 	super(skin)
 	position = initial_position
+
+func update(position: Vector2): self.position = position
