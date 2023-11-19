@@ -19,6 +19,8 @@ func _ready():
 	var new_shape = CircleShape2D.new()
 	new_shape.radius = max(enemy_size.x, enemy_size.y) / 4
 	$Area2D/CollisionShape2D.shape = new_shape
+	$Area2D/CollisionShape2D.position = enemy.position
+	$CollisionShape2D.position = enemy.position
 
 func _physics_process(delta):
 	move_enemy()
