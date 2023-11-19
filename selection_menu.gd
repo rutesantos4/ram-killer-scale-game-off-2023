@@ -27,7 +27,7 @@ func _ready():
 	
 
 func _on_back_pressed():
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://src/scenes/main_menu.tscn")
 
 func _on_play_pressed():
 	var player_selected = option_button_operating_system.get_selected_id();
@@ -35,7 +35,7 @@ func _on_play_pressed():
 	var map_selected = option_button_map.get_selected_id();
 	
 	SceneSwitcher.change_scene(
-		"res://game.tscn", 
+		"res://src/scenes/game.tscn", 
 		GameInfo.new(
 			GameAssetsFactory.Players[player_selected].m(),
 			GameAssetsFactory.Enemies[enemy_selected].m(),
