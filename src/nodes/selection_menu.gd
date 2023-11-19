@@ -64,6 +64,7 @@ func _on_play_pressed():
 					GameAssetsFactory.Maps[map_selected].xl()
 				),
 			),
-			CookieSpawner.generate(100)
+			CookieSpawner.generate(100),
+			RAM.new(50, 100)
 		)
 	)
