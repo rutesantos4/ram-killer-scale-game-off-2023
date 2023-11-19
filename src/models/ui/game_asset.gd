@@ -16,7 +16,7 @@ static func named(name: String):
 	return GameAsset.new(
 		name,
 		"res://assets/images/xs/%s.png" % fs_name,
-		"res://assets/images/sm/%s.png" % fs_name,
+		"res://assets/images/s/%s.png" % fs_name,
 		"res://assets/images/m/%s.png" % fs_name,
 		"res://assets/images/xl/%s.png" % fs_name,
 	)
