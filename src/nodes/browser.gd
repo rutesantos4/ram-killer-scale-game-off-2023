@@ -6,6 +6,7 @@ signal spawn_tab(tabs : Array[Tab])
 
 func _ready():
 	super._ready();
+	enemy = SceneSwitcher.get_game_state().enemy
 	$EnemySprite2D.texture = enemy.skin.texture
 	$EnemySprite2D.position = enemy.position
 	# Set the enemy collision radius

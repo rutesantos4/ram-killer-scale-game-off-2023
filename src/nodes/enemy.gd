@@ -5,12 +5,11 @@ const SPEED = 50.0
 
 var player: Node
 var closest_cookie_in_sight: Node
-var enemy: Browser
+var enemy: Enemy
 var ram: RAM
 
 func _ready():
 	player = get_tree().get_root().get_node("/root/Game/Player")
-	enemy = SceneSwitcher.get_game_state().enemy
 	ram = SceneSwitcher.get_game_state().ram
 
 
