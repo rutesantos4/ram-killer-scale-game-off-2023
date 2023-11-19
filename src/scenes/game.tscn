@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ssr62ur7abft"]
+[gd_scene load_steps=9 format=3 uid="uid://ssr62ur7abft"]
 
 [ext_resource type="Script" path="res://src/nodes/player.gd" id="1_u70lx"]
 [ext_resource type="Texture2D" uid="uid://cd8py2o7ruu5x" path="res://assets/images/m/linux.png" id="2_p3y55"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://src/nodes/cookie_spawner.gd" id="3_0a66y"]
 [ext_resource type="PackedScene" uid="uid://bhgmiw0eo22ii" path="res://src/scenes/cookie.tscn" id="3_iygoq"]
 [ext_resource type="PackedScene" uid="uid://dlbk2w4f6hbnv" path="res://src/scenes/enemy.tscn" id="6_iur2d"]
+[ext_resource type="PackedScene" uid="uid://con0vq264ki3o" path="res://src/scenes/map.tscn" id="6_qrrdu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oqr56"]
 
@@ -42,3 +43,5 @@ show_behind_parent = true
 script = ExtResource("2_qlmme")
 
 [node name="Enemy" parent="." instance=ExtResource("6_iur2d")]
+
+[node name="Map" parent="." instance=ExtResource("6_qrrdu")]
