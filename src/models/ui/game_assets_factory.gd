@@ -1,15 +1,17 @@
-extends Node
+extends Object
 
-@export var Enemies = [
+class_name GameAssetsFactory
+
+static var Enemies = [
 	GameAsset.named("Chrome"),
 ]
 
-@export var Players = [
+static var Players = [
 	GameAsset.named("Linux"),
 	GameAsset.named("Windows"),
 	GameAsset.named("MacOS"),
 ]
 
-@export var Maps = [
+static var Maps = [
 	GameAsset.named("Motherboard"),
 ]

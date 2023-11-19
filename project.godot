@@ -17,8 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SceneSwitcher="*res://scene_switcher.gd"
-GameAssetsFactory="*res://game_assets_factory.gd"
+SceneSwitcher="*res://src/autoload/scene_switcher.gd"
 
 [dotnet]
 
