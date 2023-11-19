@@ -7,6 +7,5 @@ func _ready():
 	
 	self.value = player.energy
 
-
-func _on_player_dashed():
+func _on_player_energy_updated():
 	self.value = player.energy

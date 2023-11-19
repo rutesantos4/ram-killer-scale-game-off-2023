@@ -63,4 +63,4 @@ theme_override_constants/outline_size = 1
 fill_mode = 3
 script = ExtResource("7_njvvk")
 
-[connection signal="player_dashed" from="Player" to="CanvasLayer/EnergyBar" method="_on_player_dashed"]
+[connection signal="player_energy_updated" from="Player" to="CanvasLayer/EnergyBar" method="_on_player_energy_updated"]
