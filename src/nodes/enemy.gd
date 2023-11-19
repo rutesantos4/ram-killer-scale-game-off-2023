@@ -5,12 +5,15 @@ const SPEED = 50.0
 
 var player : Node
 var closest_cookie_in_sight : Node
+var enemy: Enemy
 
 func _ready():
+	enemy = SceneSwitcher.get_game_state().enemy
 	# Set player
 	player = get_parent().get_node("Player")
 	# Set the enemy image
-	$EnemySprite2D.texture = SceneSwitcher.get_game_info().get_enemy_image()
+	$EnemySprite2D.texture = enemy.skin.texture
+	$EnemySprite2D.position = enemy.position
 	# Set the enemy collision radius
 	var enemy_size : Vector2 = $EnemySprite2D.texture.get_size()
 	var new_shape = CircleShape2D.new()
@@ -21,6 +24,8 @@ func _physics_process(delta):
 	move_enemy()
 	try_eat_cookies()
 	move_and_slide()
+	
+	enemy.update(position)
 
 func move_enemy():
 	if (is_player_in_sight()):
@@ -69,6 +74,8 @@ func try_eat_cookies():
 		if $Area2D.overlaps_area(cookie):
 			if(cookie == closest_cookie_in_sight):
 				closest_cookie_in_sight = null
+			
+			enemy.consume(cookie.value)
 			cookie.queue_free()
 
 func reset_closest_cookie():

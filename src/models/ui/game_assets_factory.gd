@@ -15,3 +15,5 @@ static var Players = [
 static var Maps = [
 	GameAsset.named("Motherboard"),
 ]
+
+static var Cookie = GameAsset.named("Cookie")

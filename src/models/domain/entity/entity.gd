@@ -2,9 +2,9 @@ extends Object
 
 class_name Entity
 
-var _skin: SkinAsset
+var skin: SkinAsset
 
 func _init(
 	skin: SkinAsset
 ):
-	_skin = skin
+	self.skin = skin

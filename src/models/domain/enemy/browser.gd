@@ -31,7 +31,7 @@ func spawn():
 		
 		tabs.push_front(
 			Tab.new(
-				_skin,
+				skin,
 				position, #TODO: https://github.com/rutesantos4/ram-killer-scale-game-off-2023/issues/42
 				tab_memory_size
 			)

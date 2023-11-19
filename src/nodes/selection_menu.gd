@@ -36,9 +36,32 @@ func _on_play_pressed():
 	
 	SceneSwitcher.change_scene(
 		"res://src/scenes/game.tscn", 
-		GameInfo.new(
-			GameAssetsFactory.Players[player_selected].m(),
-			GameAssetsFactory.Enemies[enemy_selected].m(),
-			GameAssetsFactory.Maps[map_selected].xl()
+		Game.new(
+			Player.new(
+				SkinAsset.new(
+					GameAssetsFactory.Players[player_selected].get_name(),
+					GameAssetsFactory.Players[player_selected].m()
+				),
+				Vector2(0, 0)
+			),
+			Browser.new(
+				SkinAsset.new(
+					GameAssetsFactory.Enemies[enemy_selected].get_name(),
+					GameAssetsFactory.Enemies[enemy_selected].m()
+				),
+				Vector2(150, 150),
+				100,
+				SkinAsset.new(
+					GameAssetsFactory.Enemies[enemy_selected].get_name(),
+					GameAssetsFactory.Enemies[enemy_selected].xs()
+				),
+			),
+			GameMap.new(
+				SkinAsset.new(
+					GameAssetsFactory.Maps[map_selected].get_name(),
+					GameAssetsFactory.Maps[map_selected].xl()
+				),
+			),
+			CookieSpawner.generate(100)
 		)
 	)

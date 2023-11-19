@@ -5,7 +5,7 @@ const BACKGROUND_SCALE = 2.5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Set the background image
-	texture = SceneSwitcher.get_game_info().get_map_image()
+	texture = SceneSwitcher.get_game_state().map.skin.texture
 	# Set the background scale
 	scale.x = BACKGROUND_SCALE
 	scale.y = BACKGROUND_SCALE
