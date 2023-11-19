@@ -34,6 +34,7 @@ func _on_play_pressed():
 	var enemy_selected = option_button_browser_to_fight.get_selected_id();
 	var map_selected = option_button_map.get_selected_id();
 	
+	#TODO: change player and enemy positions
 	SceneSwitcher.change_scene(
 		"res://src/scenes/game.tscn", 
 		Game.new(
@@ -51,6 +52,7 @@ func _on_play_pressed():
 				),
 				Vector2(150, 150),
 				100,
+				#TODO: create electrical shock skin
 				SkinAsset.new(
 					GameAssetsFactory.Enemies[enemy_selected].get_name(),
 					GameAssetsFactory.Enemies[enemy_selected].xs()
