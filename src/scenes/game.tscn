@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://ssr62ur7abft"]
+[gd_scene load_steps=9 format=3 uid="uid://ssr62ur7abft"]
 
 [ext_resource type="Script" path="res://src/nodes/player.gd" id="1_u70lx"]
+[ext_resource type="Script" path="res://src/nodes/player_follow_camera.gd" id="2_0vsw0"]
 [ext_resource type="Texture2D" uid="uid://cd8py2o7ruu5x" path="res://assets/images/m/linux.png" id="2_p3y55"]
-[ext_resource type="Script" path="res://src/nodes/background.gd" id="2_qlmme"]
 [ext_resource type="Script" path="res://src/nodes/cookie_spawner.gd" id="3_0a66y"]
 [ext_resource type="PackedScene" uid="uid://bhgmiw0eo22ii" path="res://src/scenes/cookie.tscn" id="3_iygoq"]
 [ext_resource type="PackedScene" uid="uid://dlbk2w4f6hbnv" path="res://src/scenes/enemy.tscn" id="6_iur2d"]
+[ext_resource type="PackedScene" uid="uid://con0vq264ki3o" path="res://src/scenes/map.tscn" id="6_qrrdu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oqr56"]
 
@@ -14,9 +15,10 @@
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_u70lx")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="PlayerFollowCamera" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+script = ExtResource("2_0vsw0")
 
 [node name="PlayerSprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(2.38419e-07, -2.38419e-07)
@@ -24,21 +26,19 @@ scale = Vector2(0.757812, 0.675781)
 texture = ExtResource("2_p3y55")
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="Player"]
-visible = false
 shape = SubResource("CircleShape2D_oqr56")
+debug_color = Color(0.901961, 0.054902, 0.733333, 0.419608)
 
 [node name="Area2D" type="Area2D" parent="Player"]
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="Player/Area2D"]
-visible = false
 shape = SubResource("CircleShape2D_oqr56")
+debug_color = Color(0.294118, 0.498039, 0.996078, 0.419608)
 
 [node name="CookieSpawner" type="Node2D" parent="."]
 script = ExtResource("3_0a66y")
 cookie = ExtResource("3_iygoq")
 
-[node name="Background" type="Sprite2D" parent="."]
-show_behind_parent = true
-script = ExtResource("2_qlmme")
-
 [node name="Enemy" parent="." instance=ExtResource("6_iur2d")]
+
+[node name="Map" parent="." instance=ExtResource("6_qrrdu")]
