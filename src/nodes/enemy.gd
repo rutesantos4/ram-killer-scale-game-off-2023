@@ -3,24 +3,16 @@ extends CharacterBody2D
 const IN_SIGHT_DISTANCE_LIMIT = 400
 const SPEED = 50.0
 
-var player : Node
-var closest_cookie_in_sight : Node
-var enemy: Enemy
+var player: Node
+var closest_cookie_in_sight: Node
+var enemy: Browser
+var ram: RAM
 
 func _ready():
+	player = get_tree().get_root().get_node("/root/Game/Player")
 	enemy = SceneSwitcher.get_game_state().enemy
-	# Set player
-	player = get_parent().get_node("Player")
-	# Set the enemy image
-	$EnemySprite2D.texture = enemy.skin.texture
-	$EnemySprite2D.position = enemy.position
-	# Set the enemy collision radius
-	var enemy_size : Vector2 = $EnemySprite2D.texture.get_size()
-	var new_shape = CircleShape2D.new()
-	new_shape.radius = max(enemy_size.x, enemy_size.y) / 4
-	$Area2D/CollisionShape2D.shape = new_shape
-	$Area2D/CollisionShape2D.position = enemy.position
-	$CollisionShape2D.position = enemy.position
+	ram = SceneSwitcher.get_game_state().ram
+
 
 func _physics_process(delta):
 	move_enemy()
@@ -76,9 +68,12 @@ func try_eat_cookies():
 		if $Area2D.overlaps_area(cookie):
 			if(cookie == closest_cookie_in_sight):
 				closest_cookie_in_sight = null
-			
-			enemy.consume(cookie.value)
+			eat_cookie(cookie.value)
 			cookie.queue_free()
+
+func eat_cookie(cookie: Cookie):
+	enemy.consume(cookie)
+	ram.increase(cookie)
 
 func reset_closest_cookie():
 	closest_cookie_in_sight = null
