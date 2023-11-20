@@ -21,7 +21,7 @@ tab = ExtResource("8_6rp2i")
 
 [node name="Player" parent="." instance=ExtResource("5_7tt1p")]
 
-[node name="Enemy" parent="." instance=ExtResource("6_iur2d")]
+[node name="Browser" parent="." instance=ExtResource("6_iur2d")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -44,4 +44,4 @@ script = ExtResource("7_njvvk")
 
 [node name="Map" parent="." instance=ExtResource("6_qrrdu")]
 
-[connection signal="spawn_tab" from="Enemy" to="TabSpawner" method="_on_enemy_spawn_tab"]
+[connection signal="spawn_tab" from="Browser" to="TabSpawner" method="_on_enemy_spawn_tab"]
