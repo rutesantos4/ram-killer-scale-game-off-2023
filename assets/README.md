@@ -25,6 +25,7 @@ All images labeled as extra small are described in the table below:
 |Apple Mascot|`30x30`|<a href="https://www.flaticon.com/free-icons/apple" title="apple icons">Apple icons created by Freepik - Flaticon</a>|https://www.flaticon.com/free-icon/apple_154870|![](images/xs/macos.png)|
 |Chrome Browser|`30x30`|<a href="https://www.flaticon.com/free-icons/google-chrome" title="google chrome icons">Google chrome icons created by Pixel perfect - Flaticon</a>|https://www.flaticon.com/free-icon/chrome_888846|![](images/xs/chrome.png)|
 |Motherboard Map|`30x30`|<a href="https://www.flaticon.com/free-icons/motherboard" title="motherboard icons">Motherboard icons created by pmicon - Flaticon</a>|https://www.flaticon.com/free-icon/motherboard_2009526|![](images/xs/motherboard.png)|
+|Cursor|`24x24`|<a href="https://www.flaticon.com/free-icons/pointer" title="pointer icons">Pointer icons created by Pixel perfect - Flaticon</a>|https://www.flaticon.com/free-icon/cursor_1828365|![](images/xs/cursor.png)|
 
 ### Small (s)
 
