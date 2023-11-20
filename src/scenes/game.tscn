@@ -1,46 +1,27 @@
 [gd_scene load_steps=9 format=3 uid="uid://ssr62ur7abft"]
 
-[ext_resource type="Script" path="res://src/nodes/player.gd" id="1_u70lx"]
-[ext_resource type="Script" path="res://src/nodes/player_follow_camera.gd" id="2_0vsw0"]
-[ext_resource type="Texture2D" uid="uid://cd8py2o7ruu5x" path="res://assets/images/m/linux.png" id="2_p3y55"]
 [ext_resource type="Script" path="res://src/nodes/cookie_spawner.gd" id="3_0a66y"]
 [ext_resource type="PackedScene" uid="uid://bhgmiw0eo22ii" path="res://src/scenes/cookie.tscn" id="3_iygoq"]
-[ext_resource type="PackedScene" uid="uid://dlbk2w4f6hbnv" path="res://src/scenes/enemy.tscn" id="6_iur2d"]
-[ext_resource type="Script" path="res://src/nodes/energy_bar.gd" id="7_njvvk"]
+[ext_resource type="PackedScene" uid="uid://lcvduhoqx63g" path="res://src/scenes/player.tscn" id="5_7tt1p"]
+[ext_resource type="PackedScene" uid="uid://dlbk2w4f6hbnv" path="res://src/scenes/browser.tscn" id="6_iur2d"]
 [ext_resource type="PackedScene" uid="uid://con0vq264ki3o" path="res://src/scenes/map.tscn" id="6_qrrdu"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_oqr56"]
+[ext_resource type="Script" path="res://src/nodes/tab_spawner.gd" id="7_cn7lt"]
+[ext_resource type="Script" path="res://src/nodes/energy_bar.gd" id="7_njvvk"]
+[ext_resource type="PackedScene" uid="uid://eopju6x6tftf" path="res://src/scenes/tab.tscn" id="8_6rp2i"]
 
 [node name="Game" type="Node2D"]
-
-[node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("1_u70lx")
-
-[node name="PlayerFollowCamera" type="Camera2D" parent="Player"]
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
-script = ExtResource("2_0vsw0")
-
-[node name="PlayerSprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(2.38419e-07, -2.38419e-07)
-scale = Vector2(0.757812, 0.675781)
-texture = ExtResource("2_p3y55")
-
-[node name="PlayerCollisionShape" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_oqr56")
-debug_color = Color(0.901961, 0.054902, 0.733333, 0.419608)
-
-[node name="Area2D" type="Area2D" parent="Player"]
-
-[node name="PlayerCollisionShape" type="CollisionShape2D" parent="Player/Area2D"]
-shape = SubResource("CircleShape2D_oqr56")
-debug_color = Color(0.294118, 0.498039, 0.996078, 0.419608)
 
 [node name="CookieSpawner" type="Node2D" parent="."]
 script = ExtResource("3_0a66y")
 cookie = ExtResource("3_iygoq")
 
-[node name="Enemy" parent="." instance=ExtResource("6_iur2d")]
+[node name="TabSpawner" type="Node2D" parent="."]
+script = ExtResource("7_cn7lt")
+tab = ExtResource("8_6rp2i")
+
+[node name="Player" parent="." instance=ExtResource("5_7tt1p")]
+
+[node name="Browser" parent="." instance=ExtResource("6_iur2d")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -61,5 +42,6 @@ theme_override_constants/outline_size = 1
 fill_mode = 3
 script = ExtResource("7_njvvk")
 
-[connection signal="player_energy_updated" from="Player" to="CanvasLayer/EnergyBar" method="_on_player_energy_updated"]
 [node name="Map" parent="." instance=ExtResource("6_qrrdu")]
+
+[connection signal="spawn_tab" from="Browser" to="TabSpawner" method="_on_enemy_spawn_tab"]

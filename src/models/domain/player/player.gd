@@ -8,8 +8,6 @@ var health: float
 var energy: float
 var points: float
 
-var renew_energy_timer: Timer
-
 func _init(
 	skin: SkinAsset,
 	initial_position: Vector2

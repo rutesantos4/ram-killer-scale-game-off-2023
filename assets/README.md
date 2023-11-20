@@ -33,6 +33,10 @@ All images labeled as small are described in the table below:
 |Name|Size|Licence|Source|Image|
 |----|----|-------|------|-----|
 |Cookie|`60x60`|Apache 2.0|https://www.iconarchive.com/show/noto-emoji-food-drink-icons-by-google/32420-cookie-icon.html|![](images/s/cookie.png)|
+|Youtube|`64x64`|<a href="https://www.flaticon.com/free-icons/youtube" title="youtube icons">Youtube icons created by Freepik - Flaticon</a>|https://www.flaticon.com/free-icon/youtube_1384060|![](images/s/youtube.png)|
+|Facebook|`64x64`|<a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Freepik - Flaticon</a>|https://www.flaticon.com/free-icon/facebook_5968764|![](images/s/facebook.png)|
+|Instagram|`64x64`|<a href="https://www.flaticon.com/free-icons/instagram-logo" title="instagram logo icons">Instagram logo icons created by Freepik - Flaticon</a>|https://www.flaticon.com/free-icon/instagram_1409946|![](images/s/instagram.png)|
+
 
 ### Medium (m)
 

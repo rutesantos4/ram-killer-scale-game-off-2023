@@ -6,6 +6,12 @@ static var Enemies = [
 	GameAsset.named("Chrome"),
 ]
 
+static var Tabs = [
+	GameAsset.named("Youtube"),
+	GameAsset.named("Facebook"),
+	GameAsset.named("Instagram")
+]
+
 static var Players = [
 	GameAsset.named("Linux"),
 	GameAsset.named("Windows"),
