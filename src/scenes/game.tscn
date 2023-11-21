@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ssr62ur7abft"]
+[gd_scene load_steps=13 format=3 uid="uid://ssr62ur7abft"]
 
 [ext_resource type="Script" path="res://src/nodes/game.gd" id="1_ik05v"]
 [ext_resource type="Script" path="res://src/nodes/cookie_spawner.gd" id="3_0a66y"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://src/nodes/health_bar.gd" id="8_5lroh"]
 [ext_resource type="PackedScene" uid="uid://eopju6x6tftf" path="res://src/scenes/tab.tscn" id="8_6rp2i"]
 [ext_resource type="Script" path="res://src/nodes/score_label.gd" id="10_ymp6j"]
-[ext_resource type="PackedScene" uid="uid://d02llhijsymnu" path="res://src/scenes/player_attack.tscn" id="9_kx6yh"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ik05v")
@@ -26,7 +25,6 @@ script = ExtResource("7_cn7lt")
 tab = ExtResource("8_6rp2i")
 
 [node name="Player" parent="." instance=ExtResource("5_7tt1p")]
-player_attack = ExtResource("9_kx6yh")
 
 [node name="Browser" parent="." instance=ExtResource("6_iur2d")]
 

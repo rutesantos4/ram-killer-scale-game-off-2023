@@ -11,3 +11,5 @@ script = ExtResource("1_6x5vh")
 shape = SubResource("CircleShape2D_6an6m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
