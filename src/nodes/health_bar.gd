@@ -7,5 +7,5 @@ func _ready():
 	
 	self.value = player.energy
 
-func _on_player_energy_updated():
-	self.value = player.energy
+func _on_player_health_updated():
+	self.value = player.health
