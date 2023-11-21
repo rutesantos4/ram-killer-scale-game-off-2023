@@ -4,12 +4,14 @@ const IN_SIGHT_DISTANCE_LIMIT = 400
 const SPEED = 50.0
 
 var player: Node
+var game_node: Node
 var closest_cookie_in_sight: Node
 var enemy: Enemy
 var ram: RAM
 
 func _ready():
 	player = get_tree().get_root().get_node("/root/Game/Player")
+	game_node = get_tree().root.get_node("/root/Game")
 	ram = SceneSwitcher.get_game_state().ram
 
 
@@ -73,6 +75,7 @@ func try_eat_cookies():
 func eat_cookie(cookie: Cookie):
 	enemy.consume(cookie)
 	ram.increase(cookie)
+	game_node.ram_updated.emit()
 
 func reset_closest_cookie():
 	closest_cookie_in_sight = null
