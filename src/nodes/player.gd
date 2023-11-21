@@ -70,15 +70,11 @@ func renew_energy():
 	player_energy_updated.emit()
 
 func shoot():
-	
-#	look_at(get_global_mouse_position())
-	var attack: = player_attack.instantiate()
-#	attack.transform = attack_point.global_transform
-	attack.position = get_global_mouse_position()
-	attack.rotation = rotation
-	attack.apply_impulse(Vector2(), Vector2(PLAYER_ATTACK_SPEED, 0).rotated(rotation))
+	var attack = player_attack.instantiate()
+	attack_point.look_at(get_global_mouse_position())
+	attack.transform = attack_point.global_transform
+
 	owner.add_child(attack)
-	print("shoot")
 	
 func wants_to_shoot():
 	return Input.is_action_just_pressed("ui_select")
