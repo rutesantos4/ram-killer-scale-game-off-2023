@@ -45,7 +45,7 @@ func _process(delta):
 	var cookies = get_tree().get_nodes_in_group("Cookie")
 	for cookie in cookies:
 		if $Area2D.overlaps_area(cookie):
-			player.clean(cookie.value)
+			eat_cookie(cookie.value)
 			cookie.queue_free()
 
 func wants_to_dash():
@@ -59,3 +59,7 @@ func on_player_dash():
 func renew_energy():
 	player.recover()
 	game_node.player_energy_updated.emit()
+
+func eat_cookie(cookie: Cookie):
+	player.clean(cookie)
+	game_node.player_points_updated.emit()
