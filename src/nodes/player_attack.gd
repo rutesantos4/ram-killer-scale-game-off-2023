@@ -18,8 +18,5 @@ func _physics_process(delta):
 	position += transform.x * SPEED
 
 func _on_body_entered(body: Node2D):
-	print(body.name)
-	# TODO: fix this - not all tabs are marked as 'Tab' (some are CharacterBody2D)
-	if(body.name == 'Tab'):
-		print("Here")
+	if body is TabScene:
 		body.got_attacked()
