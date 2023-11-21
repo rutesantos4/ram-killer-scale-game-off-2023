@@ -6,11 +6,11 @@ const DASH_SPEED_MULTIPLIER = 4.5
 const SEC_UNTIL_ENERGY_RENEWAL = 2.0
 
 var player: Player
-
-signal player_energy_updated
+var game_node: Node
 
 func _ready():
 	player = SceneSwitcher.get_game_state().player
+	game_node = get_tree().root.get_node("/root/Game")
 	# Set the player image
 	$PlayerSprite2D.texture = player.skin.texture
 	# Set the player position
@@ -53,9 +53,9 @@ func wants_to_dash():
 	
 func on_player_dash():
 	player.dash()
-	player_energy_updated.emit()
+	game_node.player_energy_updated.emit()
 	get_tree().create_timer(2).connect("timeout", self.renew_energy)
 
 func renew_energy():
 	player.recover()
-	player_energy_updated.emit()
+	game_node.player_energy_updated.emit()
