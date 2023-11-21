@@ -18,3 +18,6 @@ func _ready():
 	
 func set_texture(texture: Texture2D):
 	$EnemySprite2D.texture = texture
+
+func got_attacked():
+	queue_free()
