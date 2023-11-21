@@ -10,11 +10,11 @@ const SEC_UNTIL_ENERGY_RENEWAL = 2.0
 const PLAYER_ATTACK_SPEED = 1000.0
 
 var player: Player
-
-signal player_energy_updated
+var game_node: Node
 
 func _ready():
 	player = SceneSwitcher.get_game_state().player
+	game_node = get_tree().root.get_node("/root/Game")
 	# Set the player image
 	$PlayerSprite2D.texture = player.skin.texture
 	# Set the player position
@@ -37,7 +37,7 @@ func _process(delta):
 	var cookies = get_tree().get_nodes_in_group("Cookie")
 	for cookie in cookies:
 		if $Area2D.overlaps_area(cookie):
-			player.clean(cookie.value)
+			eat_cookie(cookie.value)
 			cookie.queue_free()
 
 func move():
@@ -62,12 +62,16 @@ func wants_to_dash():
 	
 func on_player_dash():
 	player.dash()
-	player_energy_updated.emit()
+	game_node.player_energy_updated.emit()
 	get_tree().create_timer(2).connect("timeout", self.renew_energy)
 
 func renew_energy():
 	player.recover()
-	player_energy_updated.emit()
+	game_node.player_energy_updated.emit()
+
+func eat_cookie(cookie: Cookie):
+	player.clean(cookie)
+	game_node.player_points_updated.emit()
 
 func shoot():
 	var attack = player_attack.instantiate()

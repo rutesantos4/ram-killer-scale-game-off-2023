@@ -1,16 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://ssr62ur7abft"]
+[gd_scene load_steps=14 format=3 uid="uid://ssr62ur7abft"]
 
+[ext_resource type="Script" path="res://src/nodes/game.gd" id="1_ik05v"]
 [ext_resource type="Script" path="res://src/nodes/cookie_spawner.gd" id="3_0a66y"]
 [ext_resource type="PackedScene" uid="uid://bhgmiw0eo22ii" path="res://src/scenes/cookie.tscn" id="3_iygoq"]
 [ext_resource type="PackedScene" uid="uid://lcvduhoqx63g" path="res://src/scenes/player.tscn" id="5_7tt1p"]
 [ext_resource type="PackedScene" uid="uid://dlbk2w4f6hbnv" path="res://src/scenes/browser.tscn" id="6_iur2d"]
 [ext_resource type="PackedScene" uid="uid://con0vq264ki3o" path="res://src/scenes/map.tscn" id="6_qrrdu"]
 [ext_resource type="Script" path="res://src/nodes/tab_spawner.gd" id="7_cn7lt"]
+[ext_resource type="Script" path="res://src/nodes/ram_bar.gd" id="7_niyik"]
 [ext_resource type="Script" path="res://src/nodes/energy_bar.gd" id="7_njvvk"]
+[ext_resource type="Script" path="res://src/nodes/health_bar.gd" id="8_5lroh"]
 [ext_resource type="PackedScene" uid="uid://eopju6x6tftf" path="res://src/scenes/tab.tscn" id="8_6rp2i"]
+[ext_resource type="Script" path="res://src/nodes/score_label.gd" id="10_ymp6j"]
 [ext_resource type="PackedScene" uid="uid://d02llhijsymnu" path="res://src/scenes/player_attack.tscn" id="9_kx6yh"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_ik05v")
 
 [node name="CookieSpawner" type="Node2D" parent="."]
 script = ExtResource("3_0a66y")
@@ -27,7 +32,7 @@ player_attack = ExtResource("9_kx6yh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="EnergyBar" type="ProgressBar" parent="CanvasLayer"]
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -42,8 +47,70 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 fill_mode = 3
+script = ExtResource("8_5lroh")
+
+[node name="EnergyBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -145.0
+offset_right = -115.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0.0862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+fill_mode = 3
 script = ExtResource("7_njvvk")
 
-[node name="Map" parent="." instance=ExtResource("6_qrrdu")]
+[node name="RAMBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -145.0
+offset_right = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.686275, 0.498039, 0.121569, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+fill_mode = 3
+script = ExtResource("7_niyik")
 
+[node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -41.0
+offset_right = 203.0
+offset_bottom = -1.0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("10_ymp6j")
+
+[node name="Map" parent="." instance=ExtResource("6_qrrdu")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="player_energy_updated" from="." to="CanvasLayer/EnergyBar" method="_on_player_energy_updated"]
+[connection signal="player_health_updated" from="." to="CanvasLayer/HealthBar" method="_on_player_health_updated"]
+[connection signal="player_points_updated" from="." to="CanvasLayer/ScoreLabel" method="_on_player_points_updated"]
+[connection signal="ram_updated" from="." to="CanvasLayer/RAMBar" method="_on_ram_updated"]
 [connection signal="spawn_tab" from="Browser" to="TabSpawner" method="_on_enemy_spawn_tab"]
