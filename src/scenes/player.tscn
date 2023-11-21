@@ -29,3 +29,5 @@ debug_color = Color(0.901961, 0.054902, 0.733333, 0.419608)
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_oqr56")
 debug_color = Color(0.294118, 0.498039, 0.996078, 0.419608)
+
+[node name="AttackPoint" type="Marker2D" parent="."]
