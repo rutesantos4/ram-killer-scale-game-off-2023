@@ -1,5 +1,6 @@
 extends "res://src/nodes/enemy.gd"
 
+class_name TabScene
 
 func _ready():
 	super._ready()
