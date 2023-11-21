@@ -10,8 +10,8 @@ var enemy: Enemy
 var ram: RAM
 
 func _ready():
-	player = get_tree().get_root().get_node("/root/Game/Player")
 	game_node = get_tree().root.get_node("/root/Game")
+	player = game_node.get_node("Player")
 	ram = SceneSwitcher.get_game_state().ram
 
 
