@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://eopju6x6tftf"]
+[gd_scene load_steps=4 format=3 uid="uid://eopju6x6tftf"]
 
 [ext_resource type="Script" path="res://src/nodes/tab.gd" id="1_tts2u"]
-[ext_resource type="PackedScene" uid="uid://lcvduhoqx63g" path="res://src/scenes/player.tscn" id="2_drmyk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_luhu5"]
 
@@ -9,7 +8,6 @@
 
 [node name="Tab" type="CharacterBody2D"]
 script = ExtResource("1_tts2u")
-player = ExtResource("2_drmyk")
 
 [node name="EnemySprite2D" type="Sprite2D" parent="."]
 
