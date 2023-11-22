@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name PlayerScene
+
 @export var player_attack: PackedScene
 @onready var attack_point: Marker2D = $AttackPoint
 
