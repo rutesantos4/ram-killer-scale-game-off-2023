@@ -3,13 +3,17 @@ extends Area2D
 @export var tab: Node2D
 
 const SPEED: float = 25.0
+const MAX_DISTANCE: float = 500.0
 
 var player: Player
 var game_node: Node
+var initial_position: Vector2
 
 func _ready():
 	game_node = get_tree().root.get_node("/root/Game")
 	player = SceneSwitcher.get_game_state().player
+	initial_position = position
+	
 	var texture = GameAssetsFactory.PlayerAttack.xs()
 	$Sprite2D.texture = texture
 	
@@ -20,7 +24,10 @@ func _ready():
 	
 
 func _physics_process(delta):
-	position += transform.x * SPEED
+	var next_position = position + transform.x * SPEED
+	if(abs(initial_position.distance_to(next_position)) > MAX_DISTANCE):
+		delete()
+	position = next_position
 
 func _on_body_entered(body: Node2D):
 	if body is PlayerScene: return
@@ -29,4 +36,7 @@ func _on_body_entered(body: Node2D):
 		tab_scene.got_attacked()
 		player.close(tab_scene.enemy)
 		game_node.player_points_updated.emit()
+	delete()
+
+func delete():
 	queue_free()
