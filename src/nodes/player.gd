@@ -1,9 +1,15 @@
 extends CharacterBody2D
 
+class_name PlayerScene
+
+@export var player_attack: PackedScene
+@onready var attack_point: Marker2D = $AttackPoint
+
 const MAX_SPEED = 250.0
 const MIN_SPEED = 50.0
 const DASH_SPEED_MULTIPLIER = 4.5
 const SEC_UNTIL_ENERGY_RENEWAL = 2.0
+const PLAYER_ATTACK_SPEED = 1000.0
 
 var player: Player
 var game_node: Node
@@ -23,6 +29,20 @@ func _ready():
 
 
 func _physics_process(delta):
+	move()
+	
+	if wants_to_shoot(): shoot()
+
+
+func _process(delta):
+	# Get all cookies present in the map
+	var cookies = get_tree().get_nodes_in_group("Cookie")
+	for cookie in cookies:
+		if $Area2D.overlaps_area(cookie):
+			eat_cookie(cookie.value)
+			cookie.queue_free()
+
+func move():
 	var target : Vector2 = get_global_mouse_position()
 	var input_distance : float = position.distance_to(target)
 	var input_direction : Vector2 = position.direction_to(target)
@@ -39,15 +59,6 @@ func _physics_process(delta):
 	
 	player.update(position)
 
-
-func _process(delta):
-	# Get all cookies present in the map
-	var cookies = get_tree().get_nodes_in_group("Cookie")
-	for cookie in cookies:
-		if $Area2D.overlaps_area(cookie):
-			eat_cookie(cookie.value)
-			cookie.queue_free()
-
 func wants_to_dash():
 	return Input.is_key_pressed(KEY_SHIFT)
 	
@@ -63,3 +74,13 @@ func renew_energy():
 func eat_cookie(cookie: Cookie):
 	player.clean(cookie)
 	game_node.player_points_updated.emit()
+
+func shoot():
+	var attack = player_attack.instantiate()
+	attack_point.look_at(get_global_mouse_position())
+	attack.transform = attack_point.global_transform
+
+	owner.add_child(attack)
+	
+func wants_to_shoot():
+	return Input.is_action_just_pressed("ui_select")

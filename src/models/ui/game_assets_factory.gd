@@ -23,3 +23,5 @@ static var Maps = [
 ]
 
 static var Cookie = GameAsset.named("Cookie")
+
+static var PlayerAttack = GameAsset.named("Cursor")
