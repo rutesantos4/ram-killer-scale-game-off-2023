@@ -30,7 +30,7 @@ func clean(cookie: Cookie):
 	points += (cookie.memory_size * 2)
 
 func close(tab: Tab):
-	points += (tab.size * 1.5)
+	points += (tab.memory_size * 1.5)
 	
 func receive(shock: ElectricalShock):
 	health -= 5.0
