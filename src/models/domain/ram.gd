@@ -14,6 +14,10 @@ func _init(
 
 func increase(cookie: Cookie):
 	current_memory_size += cookie.memory_size
-	
+
 func decrease(cookie: Cookie):
 	current_memory_size -= cookie.memory_size
+
+func decrease_from_tab_close(tab: Tab):
+	current_memory_size -= tab.memory_size
+
