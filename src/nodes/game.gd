@@ -4,3 +4,4 @@ signal player_health_updated
 signal player_energy_updated
 signal player_points_updated
 signal ram_updated
+signal game_status_updated

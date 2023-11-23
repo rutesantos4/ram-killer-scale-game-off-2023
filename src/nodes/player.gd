@@ -41,7 +41,6 @@ func _physics_process(delta):
 
 
 func _process(delta):
-	# Get all cookies present in the map
 	var cookies = get_tree().get_nodes_in_group("Cookie")
 	for cookie in cookies:
 		if $Area2D.overlaps_area(cookie):
@@ -49,7 +48,7 @@ func _process(delta):
 			cookie.queue_free()
 
 func wants_to_dash():
-	return Input.is_key_pressed(KEY_SHIFT)
+	return Input.is_action_pressed("Dash")
 	
 func on_player_dash():
 	player.dash()

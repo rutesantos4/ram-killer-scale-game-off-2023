@@ -4,21 +4,29 @@ var resume_button_node: Button
 var mute_button_node: Button
 var quit_button_node: Button
 
+var game: Game
+var game_node: Node
+
 func _ready():
-	resume_button_node = get_node("Resume")
-	mute_button_node = get_node("Mute")
-	quit_button_node = get_node("Quit")
+	game = SceneSwitcher.get_game_state()
+	game_node = get_tree().current_scene
+	
+	resume_button_node = $MarginContainer/VBoxContainer/Resume
+	mute_button_node = $MarginContainer/VBoxContainer/Mute
+	quit_button_node = $MarginContainer/VBoxContainer/Quit
 	
 	resume_button_node.connect("pressed", resume)
 	mute_button_node.connect("pressed", mute)
 	quit_button_node.connect("pressed", quit)
 
 func resume():
-	queue_free()
-	pass
+	game.resume()
+	game_node.game_status_updated.emit()
 
 func mute():
 	pass
 	
 func quit():
-	pass
+	game.end()
+	game_node.game_status_updated.emit()
+	SceneSwitcher.change_scene("res://src/scenes/main_menu.tscn")

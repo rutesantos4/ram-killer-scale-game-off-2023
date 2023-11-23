@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://6l0oix4k3s2p"]
+[gd_scene load_steps=2 format=3 uid="uid://6l0oix4k3s2p"]
+
+[ext_resource type="Script" path="res://src/nodes/pause_menu.gd" id="1_jqrgn"]
 
 [node name="pause_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_jqrgn")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
