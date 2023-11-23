@@ -45,6 +45,11 @@ func spawn() -> Array[Tab]:
 	
 	return tabs
 
+func tab_closed(tab: Tab):
+		print("tab_closed")
+		memory_size -= tab.memory_size
+		spawn_tabs.erase(tab)
+
 func generate_tab_skin():
 		var tabs = GameAssetsFactory.Tabs
 		var index = randi_range(0, tabs.size() - 1)
