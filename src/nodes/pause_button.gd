@@ -2,7 +2,7 @@ extends TextureButton
 
 var game_node: Node
 var pause_menu: Control
-var pausable_group: SceneTree
+var pausable_group: Node
 var game: Game
 
 func _ready():
@@ -26,12 +26,12 @@ func _on_game_paused():
 
 	game_node.game_status_updated.emit() 
 
-func _on_game_status_updated():
-	pause_menu.visible = is_game_paused
-	
+func _on_game_status_updated():	
 	if(game.is_paused()):
 		self.texture_normal = GameAssetsFactory.Play.s()
+		pause_menu.visible = true
 		pausable_group.process_mode = Node.PROCESS_MODE_DISABLED
 	else:
 		self.texture_normal = GameAssetsFactory.Pause.s()
+		pause_menu.visible = false
 		pausable_group.process_mode = Node.PROCESS_MODE_INHERIT
