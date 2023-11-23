@@ -76,10 +76,7 @@ func eat_cookie(cookie: Cookie):
 	enemy.consume(cookie)
 	ram.increase(cookie)
 	game_node.ram_updated.emit()
-	print("before ", self.scale)
 	self.scale = enemy.get_scale(self.scale)
-	print("after ", self.scale)
-	print(" ----- ")
 
 func reset_closest_cookie():
 	closest_cookie_in_sight = null

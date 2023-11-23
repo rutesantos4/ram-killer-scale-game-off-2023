@@ -23,7 +23,5 @@ func consume(cookie: Cookie):
 
 func get_scale(current_scale: Vector2) -> Vector2:
 	var size: float = (memory_size - previous_memory_size)/100 
-	print("size ", size)
-	print("memory_size ", memory_size)
 	previous_memory_size = memory_size
 	return Vector2(current_scale.x + size, current_scale.y + size)

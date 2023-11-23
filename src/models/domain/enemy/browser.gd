@@ -30,7 +30,6 @@ func spawn() -> Array[Tab]:
 	var maximum_tabs_joint_memory_size = memory_size - initial_memory_size
 	var tabs: Array[Tab] = []
 	var max_tabs_to_spawn = maximum_tabs_joint_memory_size / TAB_MEMORY_SIZE
-	print("max_tabs_to_spawn ", min(max_tabs_to_spawn, 6))
 	var tabs_to_spawn = randi_range(1, min(max_tabs_to_spawn, 6))
 	
 	for i in tabs_to_spawn:
@@ -46,7 +45,6 @@ func spawn() -> Array[Tab]:
 	return tabs
 
 func tab_closed(tab: Tab):
-		print("tab_closed")
 		memory_size -= tab.memory_size
 		spawn_tabs.erase(tab)
 
