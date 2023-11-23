@@ -13,10 +13,12 @@ const PLAYER_ATTACK_SPEED = 1000.0
 
 var player: Player
 var game_node: Node
+var ram: RAM
 
 func _ready():
 	player = SceneSwitcher.get_game_state().player
 	game_node = get_tree().root.get_node("/root/Game")
+	ram = SceneSwitcher.get_game_state().ram
 	# Set the player image
 	$PlayerSprite2D.texture = player.skin.texture
 	# Set the player position
@@ -73,6 +75,8 @@ func renew_energy():
 
 func eat_cookie(cookie: Cookie):
 	player.clean(cookie)
+	ram.decrease(cookie)
+	game_node.ram_updated.emit()
 	game_node.player_points_updated.emit()
 
 func shoot():
