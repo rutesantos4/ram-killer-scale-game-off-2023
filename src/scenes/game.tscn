@@ -31,9 +31,6 @@ tab = ExtResource("8_6rp2i")
 
 [node name="Browser" parent="." instance=ExtResource("6_iur2d")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("15_wkwm5")]
-visible = false
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
@@ -111,6 +108,15 @@ offset_bottom = 40.0
 grow_horizontal = 0
 texture_normal = ExtResource("12_5d33s")
 script = ExtResource("13_157xh")
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("15_wkwm5")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Map" parent="." instance=ExtResource("6_qrrdu")]
 anchors_preset = 2
