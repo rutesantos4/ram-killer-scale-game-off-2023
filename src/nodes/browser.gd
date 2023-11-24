@@ -1,7 +1,9 @@
 extends "res://src/nodes/enemy.gd"
 
 const THRESHOLD = 60
+const TIME_PERIOD_TO_SPAWN_SECONDS = 20
 
+var time_passed
 signal spawn_tab(tabs : Array[Tab])
 
 func _ready():
@@ -19,9 +21,17 @@ func _ready():
 	
 	$Area2D/CollisionShape2D.position = _position
 	$CollisionShape2D.position = _position
+	
+	time_passed = 0
 
+
+func _physics_process(delta):
+	super._physics_process(delta)
+	time_passed += delta
+	
 func eat_cookie(cookie: Cookie):
 	super.eat_cookie(cookie)
-	#TODO: if (time passed until next spawn && ram usage > threshold):
-	if(ram.has_surpassed_threshold()):
+	
+	if(time_passed > TIME_PERIOD_TO_SPAWN_SECONDS && ram.has_surpassed_threshold()):
 		spawn_tab.emit(enemy.spawn())
+		time_passed = 0
