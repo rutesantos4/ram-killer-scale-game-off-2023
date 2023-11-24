@@ -23,5 +23,8 @@ static var Maps = [
 ]
 
 static var Cookie = GameAsset.named("Cookie")
+
 static var Pause = GameAsset.named("Pause")
 static var Play = GameAsset.named("Play")
+
+static var PlayerAttack = GameAsset.named("Cursor")

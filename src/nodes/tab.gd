@@ -1,5 +1,6 @@
 extends "res://src/nodes/enemy.gd"
 
+class_name TabScene
 
 func _ready():
 	super._ready()
@@ -18,3 +19,6 @@ func _ready():
 	
 func set_texture(texture: Texture2D):
 	$EnemySprite2D.texture = texture
+
+func got_attacked():
+	queue_free()
