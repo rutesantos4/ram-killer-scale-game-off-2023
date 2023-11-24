@@ -31,7 +31,7 @@ func resume():
 	self.status = GameStatus.resumed
 
 func end():
-	self.status = GameStatus.finshed
+	self.status = GameStatus.finished
 	
 func is_paused():
 	return self.status == GameStatus.paused
@@ -39,5 +39,5 @@ func is_paused():
 enum GameStatus {
 	resumed,
 	paused,
-	finshed
+	finished
 }
