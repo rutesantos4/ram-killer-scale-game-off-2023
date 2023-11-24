@@ -11,7 +11,7 @@ var ram: RAM
 
 func _ready():
 	game_node = get_tree().root.get_node("/root/Game")
-	player = game_node.get_node("Player")
+	player = game_node.get_node("Pausable/Player")
 	ram = SceneSwitcher.get_game_state().ram
 
 

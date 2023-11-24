@@ -7,6 +7,7 @@ var enemy: Browser
 var map: GameMap
 var cookies: Array[Cookie]
 var ram: RAM
+var status: GameStatus
 
 func _init(
 	player: Player,
@@ -20,3 +21,23 @@ func _init(
 	self.map = map
 	self.cookies = cookies
 	self.ram = ram
+	
+	self.status = GameStatus.resumed
+
+func pause():
+	self.status = GameStatus.paused
+	
+func resume():
+	self.status = GameStatus.resumed
+
+func end():
+	self.status = GameStatus.finished
+	
+func is_paused():
+	return self.status == GameStatus.paused
+
+enum GameStatus {
+	resumed,
+	paused,
+	finished
+}

@@ -62,7 +62,7 @@ func move():
 	player.update(position)
 
 func wants_to_dash():
-	return Input.is_key_pressed(KEY_SHIFT)
+	return Input.is_action_pressed("Dash")
 	
 func on_player_dash():
 	player.dash()
