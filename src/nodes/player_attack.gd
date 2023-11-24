@@ -17,7 +17,7 @@ func _ready():
 	player = SceneSwitcher.get_game_state().player
 	ram = SceneSwitcher.get_game_state().ram
 	browser = SceneSwitcher.get_game_state().enemy
-	browser_scene = game_node.get_node("Browser")
+	browser_scene = game_node.get_node("Pausable/Browser")
 	initial_position = position
 	
 	var texture = GameAssetsFactory.PlayerAttack.xs()
@@ -35,7 +35,8 @@ func _physics_process(delta):
 	position = next_position
 
 func _on_body_entered(body: Node2D):
-	if body is PlayerScene: return
+	if body is PlayerScene:
+		return
 	if body is TabScene:
 		var tab_scene = body as TabScene
 		tab_scene.got_attacked()
