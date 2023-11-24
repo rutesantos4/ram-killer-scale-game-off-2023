@@ -137,4 +137,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="player_health_updated" from="." to="Stickable/HealthBar" method="_on_player_health_updated"]
 [connection signal="player_points_updated" from="." to="Stickable/ScoreLabel" method="_on_player_points_updated"]
 [connection signal="ram_updated" from="." to="Stickable/RAMBar" method="_on_ram_updated"]
+[connection signal="pressed" from="Stickable/PauseButton" to="Stickable/PauseButton" method="_on_game_paused"]
 [connection signal="spawn_tab" from="Pausable/Browser" to="Pausable/TabSpawner" method="_on_enemy_spawn_tab"]

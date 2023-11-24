@@ -12,8 +12,6 @@ func _ready():
 	pause_menu = game_node.get_node("Stickable/PauseMenu")
 	game = SceneSwitcher.get_game_state()
 	
-	self.connect("pressed", _on_game_paused)
-	
 func _process(delta):
 	if Input.is_action_just_pressed("Pause"):
 		_on_game_paused()

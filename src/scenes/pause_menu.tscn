@@ -35,3 +35,7 @@ text = "Mute"
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="resume"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Mute" to="." method="mute"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="quit"]
