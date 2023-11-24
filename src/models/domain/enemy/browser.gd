@@ -2,7 +2,10 @@ extends Enemy
 
 class_name Browser
 
+const TAB_MEMORY_SIZE = 10
+	
 var _shock_skin: SkinAsset
+var spawn_tabs: Array[Tab]
 
 func _init(
 	skin: SkinAsset,
@@ -13,6 +16,7 @@ func _init(
 	super(skin, initial_position, initial_memory_size)
 	
 	_shock_skin = shock_skin
+	spawn_tabs = []
 	
 func fire(target_position: Vector2):
 	return ElectricalShock.new(
@@ -23,23 +27,26 @@ func fire(target_position: Vector2):
 
 func spawn() -> Array[Tab]:
 	randomize()
-	var tabs_to_spawn = randi_range(0, 6)
-	var maximum_tabs_joint_memory_size = memory_size / 2
+	var maximum_tabs_joint_memory_size = memory_size - initial_memory_size
 	var tabs: Array[Tab] = []
+	var max_tabs_to_spawn = maximum_tabs_joint_memory_size / TAB_MEMORY_SIZE
+	var tabs_to_spawn = randi_range(1, min(max_tabs_to_spawn, 6))
 	
 	for i in tabs_to_spawn:
-		var tab_memory_size = maximum_tabs_joint_memory_size / tabs_to_spawn
-		tabs.push_front(
-			Tab.new(
+		var tab = Tab.new(
 				generate_tab_skin(),
 				Vector2(randi_range(position.x, position.x + 250), randi_range(position.y, position.y + 250)), #TODO: https://github.com/rutesantos4/ram-killer-scale-game-off-2023/issues/42
-				tab_memory_size
+				TAB_MEMORY_SIZE
 			)
-		)
-		
-		memory_size -= tab_memory_size
+		tabs.push_front(tab)
+		spawn_tabs.push_front(tab)
+		memory_size += TAB_MEMORY_SIZE
 	
 	return tabs
+
+func tab_closed(tab: Tab):
+		memory_size -= tab.memory_size
+		spawn_tabs.erase(tab)
 
 func generate_tab_skin():
 		var tabs = GameAssetsFactory.Tabs

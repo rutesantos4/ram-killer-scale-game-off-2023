@@ -23,5 +23,5 @@ func _ready():
 func eat_cookie(cookie: Cookie):
 	super.eat_cookie(cookie)
 	#TODO: if (time passed until next spawn && ram usage > threshold):
-	if(ram.current_memory_size >= THRESHOLD):
+	if(ram.has_surpassed_threshold()):
 		spawn_tab.emit(enemy.spawn())
