@@ -4,7 +4,7 @@ const IN_SIGHT_DISTANCE_LIMIT = 400
 const SPEED = 50.0
 
 var player: Node
-var game_node: Node
+var game_node: GameScene
 var closest_cookie_in_sight: Node
 var game: Game
 var enemy: Enemy

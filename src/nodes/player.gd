@@ -13,7 +13,7 @@ const PLAYER_ATTACK_SPEED = 1000.0
 
 var game: Game
 var player: Player
-var game_node: Node
+var game_node: GameScene
 var ram: RAM
 
 func _ready():
