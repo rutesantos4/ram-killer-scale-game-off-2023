@@ -6,13 +6,15 @@ const SPEED = 50.0
 var player: Node
 var game_node: Node
 var closest_cookie_in_sight: Node
+var game: Game
 var enemy: Enemy
 var ram: RAM
 
 func _ready():
+	game = SceneSwitcher.get_game_state()
 	game_node = get_tree().root.get_node("/root/Game")
 	player = game_node.get_node("Pausable/Player")
-	ram = SceneSwitcher.get_game_state().ram
+	ram = game.ram
 
 func _physics_process(delta):
 	move_enemy()
@@ -74,6 +76,7 @@ func try_eat_cookies():
 func eat_cookie(cookie: Cookie):
 	enemy.consume(cookie)
 	ram.increase(cookie)
+	game.delete_cookie(cookie)
 	game_node.ram_updated.emit()
 	game_node.existing_cookies_updated.emit()
 	
