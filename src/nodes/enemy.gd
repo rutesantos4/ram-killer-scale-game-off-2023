@@ -14,7 +14,6 @@ func _ready():
 	player = game_node.get_node("Pausable/Player")
 	ram = SceneSwitcher.get_game_state().ram
 
-
 func _physics_process(delta):
 	move_enemy()
 	try_eat_cookies()

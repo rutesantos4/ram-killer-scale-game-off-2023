@@ -31,7 +31,7 @@ func recover():
 
 func clean(cookie: Cookie):
 	points += (cookie.memory_size * 2)
-	cleaned_cookies_count+=1
+	cleaned_cookies_count += 1
 
 func close(tab: Tab):
 	points += (tab.memory_size * 1.5)

@@ -36,6 +36,9 @@ func end():
 func is_paused():
 	return self.status == GameStatus.paused
 
+func delete_cookie(cookie: Cookie):
+	self.cookies.erase(cookie)
+
 enum GameStatus {
 	resumed,
 	paused,
