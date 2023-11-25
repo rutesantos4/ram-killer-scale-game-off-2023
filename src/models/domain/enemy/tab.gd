@@ -17,4 +17,4 @@ func _init(
 func consume(cookie: Cookie):
 	super.consume(cookie)
 	
-	browser.on_tab_cookie_consume(cookie)
+	browser.on_tab_cookie_consumed()

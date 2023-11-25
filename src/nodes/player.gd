@@ -45,6 +45,7 @@ func _process(delta):
 		if $Area2D.overlaps_area(cookie):
 			eat_cookie(cookie.value)
 			game.delete_cookie(cookie.value)
+			game_node.existing_cookies_updated.emit()
 			cookie.queue_free()
 
 func move():

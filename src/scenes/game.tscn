@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://src/nodes/score_label.gd" id="10_ymp6j"]
 [ext_resource type="Texture2D" uid="uid://dt4wuiavo5d84" path="res://assets/images/s/pause.png" id="12_5d33s"]
 [ext_resource type="Script" path="res://src/nodes/pause_button.gd" id="13_157xh"]
-[ext_resource type="PackedScene" uid="uid://6l0oix4k3s2p" path="res://src/scenes/pause_menu.tscn" id="15_wkwm5"]
+[ext_resource type="PackedScene" path="res://src/scenes/pause_menu.tscn" id="15_wkwm5"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ik05v")
@@ -148,9 +148,9 @@ cookie = ExtResource("3_iygoq")
 script = ExtResource("7_cn7lt")
 tab = ExtResource("8_6rp2i")
 
-[node name="Player" parent="Pausable" instance=ExtResource("5_7tt1p")]
-
 [node name="Browser" parent="Pausable" instance=ExtResource("6_iur2d")]
+
+[node name="Player" parent="Pausable" instance=ExtResource("5_7tt1p")]
 
 [node name="Map" parent="." instance=ExtResource("6_qrrdu")]
 anchors_preset = 2
@@ -164,8 +164,8 @@ grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
 [connection signal="existing_cookies_updated" from="." to="Stickable/ConsumedCookiesLabel" method="_on_existing_cookies_updated"]
-[connection signal="existing_cookies_updated" from="." to="Stickable/CleanedCookiesLabel" method="_on_existing_cookies_updated"]
 [connection signal="existing_cookies_updated" from="." to="Stickable/ExistingCookiesLabel" method="_on_existing_cookies_updated"]
+[connection signal="existing_cookies_updated" from="." to="Stickable/CleanedCookiesLabel" method="_on_existing_cookies_updated"]
 [connection signal="game_status_updated" from="." to="Stickable/PauseButton" method="_on_game_status_updated"]
 [connection signal="player_energy_updated" from="." to="Stickable/EnergyBar" method="_on_player_energy_updated"]
 [connection signal="player_health_updated" from="." to="Stickable/HealthBar" method="_on_player_health_updated"]
