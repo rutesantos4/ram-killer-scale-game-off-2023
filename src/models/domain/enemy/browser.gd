@@ -36,7 +36,8 @@ func spawn() -> Array[Tab]:
 		var tab = Tab.new(
 				generate_tab_skin(),
 				Vector2(randi_range(position.x, position.x + 250), randi_range(position.y, position.y + 250)), #TODO: https://github.com/rutesantos4/ram-killer-scale-game-off-2023/issues/42
-				TAB_MEMORY_SIZE
+				TAB_MEMORY_SIZE,
+				self
 			)
 		tabs.push_front(tab)
 		spawn_tabs.push_front(tab)
@@ -53,3 +54,6 @@ func generate_tab_skin():
 		var index = randi_range(0, tabs.size() - 1)
 		var tab = tabs[index]
 		return SkinAsset.new(tab.get_name(), tab.s())
+
+func on_tab_cookie_consumed():
+	self.consumed_cookies_count += 1

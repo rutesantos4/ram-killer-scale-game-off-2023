@@ -14,7 +14,6 @@ func _ready():
 	player = game_node.get_node("Pausable/Player")
 	ram = SceneSwitcher.get_game_state().ram
 
-
 func _physics_process(delta):
 	move_enemy()
 	try_eat_cookies()
@@ -76,6 +75,8 @@ func eat_cookie(cookie: Cookie):
 	enemy.consume(cookie)
 	ram.increase(cookie)
 	game_node.ram_updated.emit()
+	game_node.existing_cookies_updated.emit()
+	
 	self.scale = enemy.get_scale(self.scale)
 
 func reset_closest_cookie():

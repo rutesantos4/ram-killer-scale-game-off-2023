@@ -78,6 +78,7 @@ func eat_cookie(cookie: Cookie):
 	ram.decrease(cookie)
 	game_node.ram_updated.emit()
 	game_node.player_points_updated.emit()
+	game_node.existing_cookies_updated.emit()
 
 func shoot():
 	var attack = player_attack.instantiate()

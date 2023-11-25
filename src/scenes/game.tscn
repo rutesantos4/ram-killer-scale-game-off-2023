@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://ssr62ur7abft"]
+[gd_scene load_steps=18 format=3 uid="uid://ssr62ur7abft"]
 
 [ext_resource type="Script" path="res://src/nodes/game.gd" id="1_ik05v"]
 [ext_resource type="Script" path="res://src/nodes/cookie_spawner.gd" id="3_0a66y"]
 [ext_resource type="PackedScene" uid="uid://bhgmiw0eo22ii" path="res://src/scenes/cookie.tscn" id="3_iygoq"]
+[ext_resource type="Script" path="res://src/nodes/cleaned_cookies_label.gd" id="5_0rvvv"]
 [ext_resource type="PackedScene" uid="uid://lcvduhoqx63g" path="res://src/scenes/player.tscn" id="5_7tt1p"]
+[ext_resource type="Script" path="res://src/nodes/consumed_cookies_label.gd" id="5_vflnr"]
 [ext_resource type="PackedScene" uid="uid://dlbk2w4f6hbnv" path="res://src/scenes/browser.tscn" id="6_iur2d"]
 [ext_resource type="PackedScene" uid="uid://con0vq264ki3o" path="res://src/scenes/map.tscn" id="6_qrrdu"]
 [ext_resource type="Script" path="res://src/nodes/tab_spawner.gd" id="7_cn7lt"]
@@ -74,6 +76,22 @@ theme_override_constants/outline_size = 1
 fill_mode = 3
 script = ExtResource("7_niyik")
 
+[node name="ConsumedCookiesLabel" type="RichTextLabel" parent="Stickable"]
+offset_left = 200.0
+offset_right = 383.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("5_vflnr")
+
+[node name="CleanedCookiesLabel" type="RichTextLabel" parent="Stickable"]
+offset_left = 20.0
+offset_right = 203.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("5_0rvvv")
+
 [node name="ScoreLabel" type="RichTextLabel" parent="Stickable"]
 anchors_preset = 2
 anchor_top = 1.0
@@ -132,6 +150,8 @@ grow_horizontal = 1
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
+[connection signal="existing_cookies_updated" from="." to="Stickable/ConsumedCookiesLabel" method="_on_existing_cookies_updated"]
+[connection signal="existing_cookies_updated" from="." to="Stickable/CleanedCookiesLabel" method="_on_existing_cookies_updated"]
 [connection signal="game_status_updated" from="." to="Stickable/PauseButton" method="_on_game_status_updated"]
 [connection signal="player_energy_updated" from="." to="Stickable/EnergyBar" method="_on_player_energy_updated"]
 [connection signal="player_health_updated" from="." to="Stickable/HealthBar" method="_on_player_health_updated"]
