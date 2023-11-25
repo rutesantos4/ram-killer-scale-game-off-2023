@@ -21,7 +21,6 @@ static func generate(browser: Browser, maximum_tabs_joint_memory_size: int) -> A
 		tabs.push_front(tab)
 		browser.spawn_tabs.push_front(tab)
 		browser.memory_size += TAB_MEMORY_SIZE
-	print(" ")
 	
 	return tabs
 
@@ -37,7 +36,6 @@ static func calculate_tab_position(center: Vector2) -> Vector2:
 	randomize()
 	var angle = randf_range(0, PI * 2)
 	var radius = randf_range(1, MAX_RADIUS_SPAWN_TAB)
-	print("angle ", angle, " radius ", radius)
 	var direction = Vector2(cos(angle), sin(angle))
 	
 	return center + direction * radius
