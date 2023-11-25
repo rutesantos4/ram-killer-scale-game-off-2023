@@ -11,12 +11,14 @@ const DASH_SPEED_MULTIPLIER = 4.5
 const SEC_UNTIL_ENERGY_RENEWAL = 2.0
 const PLAYER_ATTACK_SPEED = 1000.0
 
+var game: Game
 var player: Player
 var game_node: Node
 var ram: RAM
 
 func _ready():
-	player = SceneSwitcher.get_game_state().player
+	game = SceneSwitcher.get_game_state()
+	player = game.player
 	game_node = get_tree().root.get_node("/root/Game")
 	ram = SceneSwitcher.get_game_state().ram
 	# Set the player image
@@ -42,6 +44,7 @@ func _process(delta):
 	for cookie in cookies:
 		if $Area2D.overlaps_area(cookie):
 			eat_cookie(cookie.value)
+			game.delete_cookie(cookie.value)
 			cookie.queue_free()
 
 func move():

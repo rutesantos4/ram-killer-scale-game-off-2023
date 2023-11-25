@@ -8,6 +8,7 @@ var map: GameMap
 var cookies: Array[Cookie]
 var ram: RAM
 var status: GameStatus
+var cookies_spawned_count: int
 
 func _init(
 	player: Player,
@@ -23,6 +24,7 @@ func _init(
 	self.ram = ram
 	
 	self.status = GameStatus.resumed
+	self.cookies_spawned_count = cookies.size()
 
 func pause():
 	self.status = GameStatus.paused
@@ -35,6 +37,9 @@ func end():
 	
 func is_paused():
 	return self.status == GameStatus.paused
+	
+func delete_cookie(cookie: Cookie):
+	self.cookies.erase(cookie)
 
 enum GameStatus {
 	resumed,
