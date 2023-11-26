@@ -58,10 +58,9 @@ func _on_play_pressed():
 				),
 				Vector2(150, 150),
 				100,
-				#TODO: create electrical shock skin
 				SkinAsset.new(
-					GameAssetsFactory.Enemies[enemy_selected].get_name(),
-					GameAssetsFactory.Enemies[enemy_selected].xs()
+					GameAssetsFactory.BrowserAttack.get_name(),
+					GameAssetsFactory.BrowserAttack.s()
 				),
 			),
 			game_map,
