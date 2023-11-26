@@ -7,8 +7,7 @@ static var supported_extensions = [
 	".svg",
 	".ogg",
 	".mp3",
-	".wav",
-	".flac"
+	".wav"
 ]
 
 # Tries to resolve the file path of a resource that has been imported by Godot
