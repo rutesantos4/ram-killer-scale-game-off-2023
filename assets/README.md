@@ -75,6 +75,30 @@ The following table keeps track of all groups of sounds used as assets in the ga
 
 All sounds labeled as background music are described in the table below:
 
-|Name|Licence|Source|Sound|
-|----|-------|------|-----|
-|Main Menu|[Music by Matthew Pablo](https://matthewpablo.com/services/)|https://opengameart.org/content/space-dimensions-8bitretro-version|![](sounds/main-menu.mp3)|
+|Name|Licence|Source|
+|----|-------|------|
+|Main Menu|[Music by Matthew Pablo](https://matthewpablo.com/services/)|https://opengameart.org/content/space-dimensions-8bitretro-version|
+|Game|[Bart Kelsey](https://opengameart.org/users/bart)|https://opengameart.org/content/xeon-theme-remastered|
+
+### SFX
+
+All sounds labeled as sound effects are described in the table below:
+
+|Name|Licence|Source|
+|----|-------|------|
+|Tab Clean|Creative Commons 0 (CC-0)|https://freesound.org/people/MATRIXXX_/sounds/495541/|
+|Spawn|Creative Commons 0 (CC-0)|https://freesound.org/people/MATRIXXX_/sounds/523754/|
+|Health Loss|NO LICENSE|https://www.myinstants.com/en/instant/roblox-oof/|
+|Cookie Eat|[EminYILDIRIM Creative Commons 4 (CC-4)](https://freesound.org/people/EminYILDIRIM/)|https://freesound.org/people/EminYILDIRIM/sounds/554708/|
+|Cookie Clean|Creative Commons 0 (CC-0)|https://freesound.org/people/MATRIXXX_/sounds/515736/|
+|Electrical Shock|Creative Commons 0 (CC-0)|https://freesound.org/people/The-Sacha-Rush/sounds/657803/|
+|Mouse Attack|[Digital Art by sketcherskt](https://opengameart.org/users/sketcherskt)|https://opengameart.org/content/pew-laser-fire-sound|
+|Pause|Creative Commons 0 (CC-0)|https://opengameart.org/content/gui-sound-effects|
+|Internet Explorer|[remaxim](https://opengameart.org/users/remaxim)|https://opengameart.org/content/bad-sound-2|
+|Firefox|[InspectorJ Creative Commons 4 (CC-4)](https://freesound.org/people/InspectorJ/)|https://freesound.org/people/InspectorJ/sounds/485009/|
+|Chrome|Creative Commons 0 (CC-0)|https://opengameart.org/content/growl|
+|Windows|Microsoft|https://archive.org/details/windowsxpstartup_201910/Windows+XP+Startup.wav|
+|Linux|Tux Paint|https://github.com/tux4kids/Tuxpaint-Android/blob/master/app/src/main/jni/tuxpaint/data/sounds/areyousure.wav|
+|MacOS|Creative Commons 0 (CC-0)|https://opengameart.org/content/apple-bite|
+|Click|[Some of the sounds in this project were created by ViRiX Dreamcore (David McKee)](soundcloud.com/virix)|https://opengameart.org/content/ui-and-item-sounds-sample-1|
+|Hover|[Leohpaz Creative Commons 4 (CC-4)](https://opengameart.org/users/leohpaz)|https://opengameart.org/content/10-retro-rpg-menu-sounds|
