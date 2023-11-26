@@ -57,3 +57,6 @@ All images labeled as extra large are described in the table below:
 |Name|Size|Licence|Source|Image|
 |----|----|-------|------|-----|
 |Motherboard Map|`512x512`|<a href="https://www.flaticon.com/free-icons/motherboard" title="motherboard icons">Motherboard icons created by pmicon - Flaticon</a>|https://www.flaticon.com/free-icon/motherboard_2009526|![](images/xl/motherboard.png)|
+
+https://en.m.wikipedia.org/wiki/File:Firefox_logo,_2019.svg
+https://en.m.wikipedia.org/wiki/File:Internet_Explorer_10%2B11_logo.svg
