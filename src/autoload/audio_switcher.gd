@@ -31,7 +31,6 @@ func mute():
 	muted = true
 
 func unmute():
-	print("world")
 	AudioServer.set_bus_mute(AudioServer.get_bus_index(bgm_player.bus), false)
 	AudioServer.set_bus_mute(AudioServer.get_bus_index(sfx_player.bus), false)
 	muted = false
