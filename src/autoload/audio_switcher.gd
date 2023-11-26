@@ -10,8 +10,10 @@ func _ready():
 func switch_bgm(
 	asset: GameAsset
 ):
-	bgm_player.stream = asset.audio()
-	bgm_player.play()
+	var audio = asset.audio()
+	if(bgm_player.stream != audio):
+		bgm_player.stream = audio
+		bgm_player.play()
 	
 func play_sfx(
 	asset: GameAsset
