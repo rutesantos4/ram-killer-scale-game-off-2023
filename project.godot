@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneSwitcher="*res://src/autoload/scene_switcher.gd"
-BGMScene="*res://src/scenes/bgm_scene.tscn"
+AudioScene="*res://src/scenes/audio_scene.tscn"
 
 [dotnet]
 
