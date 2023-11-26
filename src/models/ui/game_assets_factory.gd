@@ -4,6 +4,8 @@ class_name GameAssetsFactory
 
 static var Enemies = [
 	GameAsset.named("Chrome"),
+	GameAsset.named("Firefox"),
+	GameAsset.named("IE")
 ]
 
 static var Tabs = [
@@ -30,3 +32,4 @@ static var PlayerAttack = GameAsset.named("Cursor")
 static var MainMenuBGM = GameAsset.named("Main-Menu")
 static var GameBGM = GameAsset.named("Game")
 static var HoverSFX = GameAsset.named("Hover")
+static var ClickSFX = GameAsset.named("Click")
