@@ -47,6 +47,7 @@ func _process(delta):
 			game.delete_cookie(cookie.value)
 			game_node.existing_cookies_updated.emit()
 			cookie.queue_free()
+			AudioScene.play_sfx(GameAssetsFactory.CookieCleanSFX)
 
 func move():
 	var target : Vector2 = get_global_mouse_position()
@@ -72,6 +73,7 @@ func on_player_dash():
 	player.dash()
 	game_node.player_energy_updated.emit()
 	get_tree().create_timer(2).connect("timeout", self.renew_energy)
+	AudioScene.play_sfx(GameAssetsFactory.DashSFX)
 
 func renew_energy():
 	player.recover()
@@ -88,6 +90,7 @@ func shoot():
 	var attack = player_attack.instantiate()
 	attack_point.look_at(get_global_mouse_position())
 	attack.transform = attack_point.global_transform
+	AudioScene.play_sfx(GameAssetsFactory.MouseAttackSFX)
 
 	owner.add_child(attack)
 	

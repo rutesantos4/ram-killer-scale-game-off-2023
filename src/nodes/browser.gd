@@ -35,3 +35,4 @@ func eat_cookie(cookie: Cookie):
 	if(time_passed > TIME_PERIOD_TO_SPAWN_SECONDS && ram.has_surpassed_threshold()):
 		spawn_tab.emit(enemy.spawn())
 		time_passed = 0
+		AudioScene.play_sfx(GameAssetsFactory.SpawnSFX)

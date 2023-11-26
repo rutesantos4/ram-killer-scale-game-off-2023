@@ -20,6 +20,7 @@ func _on_game_paused():
 	if(game.is_paused()):
 		game.resume()
 	else:
+		AudioScene.play_sfx(GameAssetsFactory.PauseSFX)
 		game.pause()
 
 	game_node.game_status_updated.emit() 

@@ -47,6 +47,7 @@ func _on_body_entered(body: Node2D):
 		browser.tab_closed(tab)
 		browser_scene.scale = browser.get_scale(browser_scene.scale)
 		game_node.ram_updated.emit()
+		AudioScene.play_sfx(GameAssetsFactory.TabCleanSFX)
 	delete()
 
 func delete():

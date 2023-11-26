@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://qqjucvuxim8l"]
+[gd_scene load_steps=3 format=3 uid="uid://qqjucvuxim8l"]
 
 [ext_resource type="Script" path="res://src/nodes/main_menu.gd" id="1_1ujbe"]
+[ext_resource type="Script" path="res://src/nodes/theme/textured_button.gd" id="2_j2q43"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -31,14 +32,17 @@ layout_mode = 2
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Play"
+script = ExtResource("2_j2q43")
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Options"
+script = ExtResource("2_j2q43")
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+script = ExtResource("2_j2q43")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

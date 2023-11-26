@@ -69,3 +69,10 @@ func _on_play_pressed():
 			RAM.new(50, 100)
 		)
 	)
+
+func _on_operating_system_mascot_item_selected(index):
+	AudioScene.play_sfx(GameAssetsFactory.Players[index])
+
+
+func _on_browser_to_fight_item_selected(index):
+	AudioScene.play_sfx(GameAssetsFactory.Enemies[index])

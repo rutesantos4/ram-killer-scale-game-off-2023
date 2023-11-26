@@ -73,6 +73,7 @@ func try_eat_cookies():
 				closest_cookie_in_sight = null
 			eat_cookie(cookie.value)
 			cookie.queue_free()
+			AudioScene.play_sfx(GameAssetsFactory.CookieEatSFX)
 
 func eat_cookie(cookie: Cookie):
 	enemy.consume(cookie)

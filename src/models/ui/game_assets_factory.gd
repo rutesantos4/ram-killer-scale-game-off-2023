@@ -4,6 +4,8 @@ class_name GameAssetsFactory
 
 static var Enemies = [
 	GameAsset.named("Chrome"),
+	GameAsset.named("Firefox"),
+	GameAsset.named("IE")
 ]
 
 static var Tabs = [
@@ -23,8 +25,22 @@ static var Maps = [
 ]
 
 static var Cookie = GameAsset.named("Cookie")
-
 static var Pause = GameAsset.named("Pause")
 static var Play = GameAsset.named("Play")
-
 static var PlayerAttack = GameAsset.named("Cursor")
+
+static var MainMenuBGM = GameAsset.named("Main-Menu")
+static var GameBGM = GameAsset.named("Game")
+
+static var HoverSFX = GameAsset.named("Hover")
+static var ClickSFX = GameAsset.named("Click")
+
+static var PauseSFX = GameAsset.named("Pause")
+static var CookieCleanSFX = GameAsset.named("Cookie-Clean")
+static var CookieEatSFX = GameAsset.named("Cookie-Eat")
+static var DashSFX = GameAsset.named("Dash")
+static var HealthLossSFX = GameAsset.named("Health-Loss")
+static var MouseAttackSFX = GameAsset.named("Mouse-Attack")
+static var ElectricalShockSFX = GameAsset.named("Shock")
+static var SpawnSFX = GameAsset.named("Spawn")
+static var TabCleanSFX = GameAsset.named("Tab-Clean")
