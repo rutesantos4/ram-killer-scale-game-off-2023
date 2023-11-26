@@ -31,6 +31,7 @@ func generate_cookies():
 	add_cookies(cookies)
 	game_state.add_cookies(cookies)
 	game_node.existing_cookies_updated.emit()
+	AudioScene.play_sfx(GameAssetsFactory.SpawnSFX)
 	
 func handle_time_to_spawn():
 	var timer: Timer = Timer.new()
