@@ -14,6 +14,7 @@ func _ready():
 	for i in range(0, enemies_size):
 		var enemy = GameAssetsFactory.Enemies[i]
 		option_button_browser_to_fight.add_icon_item(enemy.xs(), enemy.get_name(), i)
+		print(option_button_browser_to_fight)
 		
 	var players_size = GameAssetsFactory.Players.size()
 	for i in range(0, players_size):
@@ -68,3 +69,10 @@ func _on_play_pressed():
 			RAM.new(50, 100)
 		)
 	)
+
+func _on_operating_system_mascot_item_selected(index):
+	AudioScene.play_sfx(GameAssetsFactory.Players[index])
+
+
+func _on_browser_to_fight_item_selected(index):
+	AudioScene.play_sfx(GameAssetsFactory.Enemies[index])

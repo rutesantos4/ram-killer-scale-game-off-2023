@@ -52,5 +52,7 @@ layout_mode = 2
 text = "Back"
 script = ExtResource("2_n2nxl")
 
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Operating system mascot" to="." method="_on_operating_system_mascot_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Browser to fight" to="." method="_on_browser_to_fight_item_selected"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
