@@ -5,7 +5,7 @@ class_name CookieSpawner
 const COOKIE_MIN_POSITION = -2000
 const COOKIE_MAX_POSITION = 2000
 
-static func generate(amount: int):	
+static func generate(amount: int) -> Array[Cookie]:
 	var cookies: Array[Cookie] = []
 	
 	var cookie_skin = SkinAsset.new(

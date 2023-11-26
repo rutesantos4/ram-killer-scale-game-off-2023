@@ -5,7 +5,7 @@ extends Area2D
 const SPEED: float = 25.0
 const MAX_DISTANCE: float = 500.0
 
-var game_node: Node
+var game_node: GameScene
 var player: Player
 var ram: RAM
 var browser: Browser

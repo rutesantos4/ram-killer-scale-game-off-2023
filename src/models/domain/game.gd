@@ -40,6 +40,10 @@ func is_paused():
 	
 func delete_cookie(cookie: Cookie):
 	self.cookies.erase(cookie)
+	
+func add_cookies(cookies: Array[Cookie]):
+	self.cookies.append_array(cookies)
+	self.cookies_spawned_count += cookies.size()
 
 enum GameStatus {
 	resumed,
