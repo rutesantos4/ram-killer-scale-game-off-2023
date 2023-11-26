@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhgmiw0eo22ii"]
+[gd_scene load_steps=3 format=3 uid="uid://bhgmiw0eo22ii"]
 
 [ext_resource type="Script" path="res://src/nodes/cookie.gd" id="1_l1nix"]
-[ext_resource type="Texture2D" uid="uid://bijgjqpgedp13" path="res://assets/images/s/cookie.png" id="1_rnvu5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_43op6"]
 radius = 31.0
@@ -10,7 +9,6 @@ radius = 31.0
 script = ExtResource("1_l1nix")
 
 [node name="CookieSprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_rnvu5")
 
 [node name="CookieCollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_43op6")
