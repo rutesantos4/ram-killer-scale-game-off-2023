@@ -100,5 +100,5 @@ All sounds labeled as sound effects are described in the table below:
 |Windows|Microsoft|https://archive.org/details/windowsxpstartup_201910/Windows+XP+Startup.wav|
 |Linux|Tux Paint|https://github.com/tux4kids/Tuxpaint-Android/blob/master/app/src/main/jni/tuxpaint/data/sounds/areyousure.wav|
 |MacOS|Creative Commons 0 (CC-0)|https://opengameart.org/content/apple-bite|
-|Click|[Some of the sounds in this project were created by ViRiX Dreamcore (David McKee)](soundcloud.com/virix)|https://opengameart.org/content/ui-and-item-sounds-sample-1|
+|Click|[Some of the sounds in this project were created by ViRiX Dreamcore (David McKee)](https://soundcloud.com/virix)|https://opengameart.org/content/ui-and-item-sounds-sample-1|
 |Hover|[Leohpaz Creative Commons 4 (CC-4)](https://opengameart.org/users/leohpaz)|https://opengameart.org/content/10-retro-rpg-menu-sounds|
