@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn5rc72y8a3vj"]
+
+[ext_resource type="Script" path="res://src/autoload/audio_switcher.gd" id="1_t4qka"]
+[ext_resource type="AudioStream" uid="uid://db765cst5l115" path="res://assets/sounds/main-menu.mp3" id="2_35m26"]
+
+[node name="audio_scene" type="Node2D"]
+script = ExtResource("1_t4qka")
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_35m26")
+autoplay = true
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
