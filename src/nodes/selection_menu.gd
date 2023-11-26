@@ -34,6 +34,12 @@ func _on_play_pressed():
 	var enemy_selected = option_button_browser_to_fight.get_selected_id();
 	var map_selected = option_button_map.get_selected_id();
 	
+	var game_map = GameMap.new(
+						SkinAsset.new(
+							GameAssetsFactory.Maps[map_selected].get_name(),
+							GameAssetsFactory.Maps[map_selected].xl()
+						)
+					)
 	#TODO: change player and enemy positions
 	SceneSwitcher.change_scene(
 		"res://src/scenes/game.tscn", 
@@ -58,13 +64,8 @@ func _on_play_pressed():
 					GameAssetsFactory.Enemies[enemy_selected].xs()
 				),
 			),
-			GameMap.new(
-				SkinAsset.new(
-					GameAssetsFactory.Maps[map_selected].get_name(),
-					GameAssetsFactory.Maps[map_selected].xl()
-				),
-			),
-			CookieSpawner.generate(100),
+			game_map,
+			CookieSpawner.generate(game_map.size, 100),
 			RAM.new(50, 100)
 		)
 	)

@@ -27,7 +27,7 @@ func add_cookies(cookies: Array[Cookie]):
 
 func generate_cookies():
 	randomize()
-	var cookies = CookieSpawner.generate(randi_range(MIN_COOKIES_TO_SPAWN, MAX_COOKIES_TO_SPAWN))
+	var cookies = CookieSpawner.generate(game_state.map.size, randi_range(MIN_COOKIES_TO_SPAWN, MAX_COOKIES_TO_SPAWN))
 	add_cookies(cookies)
 	game_state.add_cookies(cookies)
 	game_node.existing_cookies_updated.emit()
