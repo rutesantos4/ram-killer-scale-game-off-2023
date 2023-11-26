@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://6l0oix4k3s2p"]
+[gd_scene load_steps=3 format=3 uid="uid://6l0oix4k3s2p"]
 
 [ext_resource type="Script" path="res://src/nodes/pause_menu.gd" id="1_jqrgn"]
+[ext_resource type="Script" path="res://src/nodes/theme/textured_button.gd" id="2_25tna"]
 
 [node name="pause_menu" type="Control"]
 layout_mode = 3
@@ -27,14 +28,17 @@ layout_mode = 2
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
+script = ExtResource("2_25tna")
 
 [node name="Mute" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Mute"
+script = ExtResource("2_25tna")
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+script = ExtResource("2_25tna")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="resume"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Mute" to="." method="mute"]
