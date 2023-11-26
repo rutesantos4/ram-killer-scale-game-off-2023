@@ -39,6 +39,7 @@ All images labeled as small are described in the table below:
 |Youtube|`64x64`|<a href="https://www.flaticon.com/free-icons/youtube" title="youtube icons">Youtube icons created by Freepik - Flaticon</a>|https://www.flaticon.com/free-icon/youtube_1384060|![](images/s/youtube.png)|
 |Facebook|`64x64`|<a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Freepik - Flaticon</a>|https://www.flaticon.com/free-icon/facebook_5968764|![](images/s/facebook.png)|
 |Instagram|`64x64`|<a href="https://www.flaticon.com/free-icons/instagram-logo" title="instagram logo icons">Instagram logo icons created by Freepik - Flaticon</a>|https://www.flaticon.com/free-icon/instagram_1409946|![](images/s/instagram.png)|
+|Projectile lightning|`64x64`|[Clint Bellanger Creative Commons 34 (CC-3)](https://opengameart.org/users/clint-bellanger)| https://opengameart.org/content/lightning-shock-spell|![](images/s/shock.png)|
 
 
 ### Medium (m)
