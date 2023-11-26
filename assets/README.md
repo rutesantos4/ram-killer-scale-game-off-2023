@@ -5,7 +5,7 @@ This document keeps track of all assets used in the game
 ## Images
 
 The following table keeps track of all groups of images used as assets in the game. All images should fall into one of the groups,
-respect their minimum and maximum boundaries, be transparent (`png`) and shared under a free or attributed license.
+respect their minimum and maximum boundaries, be transparent (`png`, `svg`) and shared under a free or attributed license.
 
 |Group|Min Size|Max Size|
 |----|--------|--------|
@@ -24,6 +24,8 @@ All images labeled as extra small are described in the table below:
 |Windows Mascot|`25x48`|Non-commercial Use|https://www.pngaaa.com/detail/393521|![](images/xs/windows.png)|
 |Apple Mascot|`30x30`|<a href="https://www.flaticon.com/free-icons/apple" title="apple icons">Apple icons created by Freepik - Flaticon</a>|https://www.flaticon.com/free-icon/apple_154870|![](images/xs/macos.png)|
 |Chrome Browser|`30x30`|<a href="https://www.flaticon.com/free-icons/google-chrome" title="google chrome icons">Google chrome icons created by Pixel perfect - Flaticon</a>|https://www.flaticon.com/free-icon/chrome_888846|![](images/xs/chrome.png)|
+|Firefox|`32x32`|MPL 2|https://en.m.wikipedia.org/wiki/File:Firefox_logo,_2019.svg|![](images/xs/firefox.svg)|
+|Internet Explorer|`32x32`|NO LICENSE|https://en.m.wikipedia.org/wiki/File:Internet_Explorer_10%2B11_logo.svg|![](images/xs/ie.svg)|
 |Motherboard Map|`30x30`|<a href="https://www.flaticon.com/free-icons/motherboard" title="motherboard icons">Motherboard icons created by pmicon - Flaticon</a>|https://www.flaticon.com/free-icon/motherboard_2009526|![](images/xs/motherboard.png)|
 |Cursor|`24x24`|<a href="https://www.flaticon.com/free-icons/pointer" title="pointer icons">Pointer icons created by Pixel perfect - Flaticon</a>|https://www.flaticon.com/free-icon/cursor_1828365|![](images/xs/cursor.png)|
 
@@ -49,6 +51,8 @@ All images labeled as medium are described in the table below:
 |Windows Mascot|`103x196`|Non-commercial Use|https://www.pngaaa.com/detail/393521|![](images/m/windows.png)|
 |Apple Mascot|`168x168`|<a href="https://www.flaticon.com/free-icons/apple" title="apple icons">Apple icons created by Freepik - Flaticon</a>|https://www.flaticon.com/free-icon/apple_154870|![](images/m/macos.png)|
 |Chrome|`196x196`|<a href="https://www.flaticon.com/free-icons/google-chrome" title="google chrome icons">Google chrome icons created by Pixel perfect - Flaticon</a>|https://www.flaticon.com/free-icon/chrome_888846|![](images/m/chrome.png)|
+|Firefox|`160x160`|MPL 2|https://en.m.wikipedia.org/wiki/File:Firefox_logo,_2019.svg|![](images/m/firefox.svg)|
+|Internet Explorer|`200x200`|NO LICENSE|https://en.m.wikipedia.org/wiki/File:Internet_Explorer_10%2B11_logo.svg|![](images/m/ie.svg)|
 
 ### Extra Large (xl)
 
@@ -58,5 +62,19 @@ All images labeled as extra large are described in the table below:
 |----|----|-------|------|-----|
 |Motherboard Map|`512x512`|<a href="https://www.flaticon.com/free-icons/motherboard" title="motherboard icons">Motherboard icons created by pmicon - Flaticon</a>|https://www.flaticon.com/free-icon/motherboard_2009526|![](images/xl/motherboard.png)|
 
-https://en.m.wikipedia.org/wiki/File:Firefox_logo,_2019.svg
-https://en.m.wikipedia.org/wiki/File:Internet_Explorer_10%2B11_logo.svg
+## Sounds
+
+The following table keeps track of all groups of sounds used as assets in the game. All sounds should fall into one of the groups and shared under a free or attributed license.
+
+|Group|
+|-----|
+|`bgm`|
+|`sfx`|
+
+### BGM
+
+All sounds labeled as background music are described in the table below:
+
+|Name|Licence|Source|Sound|
+|----|-------|------|-----|
+|Main Menu|[Music by Matthew Pablo](https://matthewpablo.com/services/)|https://opengameart.org/content/space-dimensions-8bitretro-version|![](sounds/main-menu.mp3)|
