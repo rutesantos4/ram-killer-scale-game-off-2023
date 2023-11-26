@@ -41,8 +41,9 @@ func move_to_player():
 	velocity = move_direction.normalized() * SPEED
 
 func move_to_cookie():
-	closest_cookie_in_sight = closest_cookie()
-	if(closest_cookie_in_sight):
+	var cookie = closest_cookie()
+	if(is_instance_valid(cookie)):
+		closest_cookie_in_sight = cookie
 		var move_direction = closest_cookie_in_sight.position - position
 		velocity = move_direction.normalized() * SPEED
 
