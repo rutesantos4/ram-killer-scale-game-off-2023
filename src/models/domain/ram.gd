@@ -25,3 +25,6 @@ func decrease_from_tab_close(tab: Tab):
 
 func has_surpassed_threshold() -> bool:
 	return current_memory_size > threshold
+
+func has_reached_max_capacity() -> bool:
+	return current_memory_size >= max_memory_size
