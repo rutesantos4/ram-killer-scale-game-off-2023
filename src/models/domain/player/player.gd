@@ -38,3 +38,6 @@ func close(tab: Tab):
 	
 func receive(shock: ElectricalShock):
 	health -= 5.0
+
+func is_dead() -> bool:
+	return health <= 0
