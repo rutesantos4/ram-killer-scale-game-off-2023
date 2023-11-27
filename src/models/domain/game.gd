@@ -38,6 +38,9 @@ func end():
 func is_paused():
 	return self.status == GameStatus.paused
 	
+func is_finished():
+	return self.status == GameStatus.finished
+	
 func delete_cookie(cookie: Cookie):
 	self.cookies.erase(cookie)
 	
