@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba6smw8lw41gb"]
+[gd_scene load_steps=3 format=3 uid="uid://ba6smw8lw41gb"]
 
 [ext_resource type="Script" path="res://src/scenes/end_game_menu.gd" id="1_ej8cp"]
 [ext_resource type="Script" path="res://src/nodes/theme/textured_button.gd" id="1_nx5xi"]
-[ext_resource type="Script" path="res://src/nodes/score_label.gd" id="2_dt6e7"]
-[ext_resource type="Script" path="res://src/nodes/cleaned_cookies_label.gd" id="3_k3riw"]
 
 [node name="EndGameMenu" type="Control"]
 layout_mode = 3
@@ -32,19 +30,11 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="CleanedCookiesLabel" type="RichTextLabel" parent="BoxContainer/ScoreContainer/VBoxContainer"]
+[node name="GameOverLabel" type="RichTextLabel" parent="BoxContainer/ScoreContainer/VBoxContainer"]
 layout_mode = 2
-text = "Cleaned cookies"
+text = "Game Over!"
 fit_content = true
 scroll_active = false
-script = ExtResource("3_k3riw")
-
-[node name="ScoreLabel" type="RichTextLabel" parent="BoxContainer/ScoreContainer/VBoxContainer"]
-layout_mode = 2
-text = "Cleaned cookies"
-fit_content = true
-scroll_active = false
-script = ExtResource("2_dt6e7")
 
 [node name="ButtonsContainer" type="MarginContainer" parent="BoxContainer"]
 layout_mode = 2
