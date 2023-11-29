@@ -31,21 +31,24 @@ func move_enemy():
 		move_to_cookie()
 
 func is_player_in_sight():
-	return position.distance_to(player_position()) <= IN_SIGHT_DISTANCE_LIMIT
+	return get_current_position().distance_to(player_position()) <= IN_SIGHT_DISTANCE_LIMIT
 
 func player_position():
 	return player.position
 
 func move_to_player():
-	var move_direction = position.direction_to(player_position())
+	var move_direction = get_current_position().direction_to(player_position())
 	velocity = move_direction * SPEED
 
 func move_to_cookie():
 	var cookie = closest_cookie()
 	if(is_instance_valid(cookie)):
 		closest_cookie_in_sight = cookie
-		var move_direction = position.direction_to(closest_cookie_in_sight.position)
+		var move_direction = get_current_position().direction_to(closest_cookie_in_sight.position)
 		velocity = move_direction * SPEED
+
+func get_current_position():
+	return global_position + enemy.initial_position * self.scale
 
 func closest_cookie():
 	if(closest_cookie_in_sight):
