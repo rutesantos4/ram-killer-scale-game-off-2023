@@ -31,7 +31,7 @@ func move_enemy():
 		move_to_cookie()
 
 func is_player_in_sight():
-	return get_current_position().distance_to(player_position()) <= IN_SIGHT_DISTANCE_LIMIT
+	return get_current_position().distance_to(player_position()) <= (IN_SIGHT_DISTANCE_LIMIT * self.scale.x)
 
 func player_position():
 	return player.position
