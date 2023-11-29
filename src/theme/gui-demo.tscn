@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ct1dl4sqyml4k"]
+[gd_scene load_steps=7 format=3 uid="uid://ct1dl4sqyml4k"]
 
 [ext_resource type="Theme" uid="uid://bj7wlv8i27x8o" path="res://src/theme/space_theme.tres" id="1_vb1mp"]
 [ext_resource type="Script" path="res://src/nodes/theme/textured_button.gd" id="2_m3nwq"]
 [ext_resource type="Texture2D" uid="uid://cihyak37f0nn7" path="res://assets/status_bar.png" id="3_7ik3n"]
+[ext_resource type="Texture2D" uid="uid://bnfgd6gys3aaj" path="res://assets/health-progress-bar-background.png" id="4_mucta"]
+[ext_resource type="Texture2D" uid="uid://cmpdwp63vq7rv" path="res://assets/health-progress-bar-fill.png" id="5_cpewo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pgu04"]
+texture = ExtResource("4_mucta")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("2_m3nwq")
@@ -33,11 +38,11 @@ script = ExtResource("2_m3nwq")
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = 217.0
 offset_top = 319.0
-offset_right = 820.0
+offset_right = 616.0
 offset_bottom = 346.0
 theme = ExtResource("1_vb1mp")
 theme_override_colors/font_color = Color(0.25098, 0.447059, 0, 1)
-value = 100.0
+value = 80.0
 
 [node name="OptionButton" type="OptionButton" parent="."]
 offset_left = 672.0
@@ -64,3 +69,29 @@ offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_7ik3n")
+
+[node name="Panel3" type="Panel" parent="."]
+offset_left = 357.0
+offset_top = 231.0
+offset_right = 581.0
+offset_bottom = 271.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_pgu04")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel3/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Panel3"]
+layout_mode = 0
+offset_left = 313.0
+offset_top = -19.0
+offset_right = 838.0
+offset_bottom = 66.0
+value = 100.0
+texture_under = ExtResource("4_mucta")
+texture_progress = ExtResource("5_cpewo")
+texture_progress_offset = Vector2(5, 5)

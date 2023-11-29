@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://6l0oix4k3s2p"]
+[gd_scene load_steps=4 format=3 uid="uid://6l0oix4k3s2p"]
 
 [ext_resource type="Script" path="res://src/nodes/pause_menu.gd" id="1_jqrgn"]
 [ext_resource type="Script" path="res://src/nodes/theme/textured_button.gd" id="2_25tna"]
+[ext_resource type="Theme" uid="uid://bj7wlv8i27x8o" path="res://src/theme/space_theme.tres" id="3_p7rbw"]
 
 [node name="pause_menu" type="Control"]
 layout_mode = 3
@@ -40,6 +41,71 @@ layout_mode = 2
 text = "Quit"
 script = ExtResource("2_25tna")
 
+[node name="Options" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -151.5
+offset_right = 149.0
+offset_bottom = 151.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_p7rbw")
+
+[node name="Label" type="RichTextLabel" parent="Options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.5
+offset_right = 101.5
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Options"
+
+[node name="Column" type="VBoxContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = -74.0
+offset_right = 137.5
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="Options/Column"]
+layout_mode = 2
+theme = ExtResource("3_p7rbw")
+theme_override_font_sizes/font_size = 36
+text = "Resume"
+script = ExtResource("2_25tna")
+
+[node name="Mute" type="Button" parent="Options/Column"]
+layout_mode = 2
+theme = ExtResource("3_p7rbw")
+theme_override_font_sizes/font_size = 36
+text = "Mute"
+script = ExtResource("2_25tna")
+
+[node name="Quit" type="Button" parent="Options/Column"]
+layout_mode = 2
+theme = ExtResource("3_p7rbw")
+theme_override_font_sizes/font_size = 36
+text = "Quit"
+script = ExtResource("2_25tna")
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="resume"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Mute" to="." method="mute"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="quit"]
+[connection signal="pressed" from="Options/Column/Resume" to="." method="resume"]
+[connection signal="pressed" from="Options/Column/Mute" to="." method="mute"]
+[connection signal="pressed" from="Options/Column/Quit" to="." method="quit"]

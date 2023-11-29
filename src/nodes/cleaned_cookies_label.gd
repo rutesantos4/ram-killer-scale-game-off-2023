@@ -8,4 +8,6 @@ func _ready():
 	_on_existing_cookies_updated()
 
 func _on_existing_cookies_updated():
-	self.text = "Cleaned Cookies: %d" % player.cleaned_cookies_count
+	print(player.cleaned_cookies_count)
+	print(self.text)
+	self.text = "%d" % player.cleaned_cookies_count

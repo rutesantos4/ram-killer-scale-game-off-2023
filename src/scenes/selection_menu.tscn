@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://o00fipeg4wm"]
+[gd_scene load_steps=5 format=3 uid="uid://o00fipeg4wm"]
 
 [ext_resource type="Script" path="res://src/nodes/selection_menu.gd" id="1_govjd"]
 [ext_resource type="Theme" uid="uid://bj7wlv8i27x8o" path="res://src/theme/space_theme.tres" id="2_18imx"]
+[ext_resource type="Texture2D" uid="uid://cf1absoqi06ao" path="res://assets/images/xl/background-main-menu.jpeg" id="2_l6lkx"]
 [ext_resource type="Script" path="res://src/nodes/theme/textured_button.gd" id="2_n2nxl"]
 
 [node name="Selection Menu" type="Control"]
@@ -15,6 +16,19 @@ script = ExtResource("1_govjd")
 option_button_operating_system_path = NodePath("Options/Column/Operating system mascot")
 option_button_browser_to_fight_path = NodePath("Options/Column/Browser to fight")
 option_button_map_path = NodePath("Options/Column/Map")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -700.0
+offset_right = 448.0
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l6lkx")
 
 [node name="Options" type="Panel" parent="."]
 layout_mode = 1
@@ -60,14 +74,26 @@ grow_vertical = 2
 
 [node name="Operating system mascot" type="OptionButton" parent="Options/Column"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/arrow_margin = 32
+theme_override_font_sizes/font_size = 24
 expand_icon = true
 
 [node name="Browser to fight" type="OptionButton" parent="Options/Column"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/arrow_margin = 32
+theme_override_font_sizes/font_size = 24
 
 [node name="Map" type="OptionButton" parent="Options/Column"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+size_flags_vertical = 3
+theme_override_constants/arrow_margin = 32
+theme_override_font_sizes/font_size = 24
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Options/Column"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Play" type="Button" parent="Options/Column"]
 layout_mode = 2

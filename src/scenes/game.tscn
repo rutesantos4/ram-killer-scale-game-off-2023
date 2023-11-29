@@ -1,115 +1,227 @@
-[gd_scene load_steps=23 format=3 uid="uid://ssr62ur7abft"]
+[gd_scene load_steps=35 format=3 uid="uid://ssr62ur7abft"]
 
 [ext_resource type="Script" path="res://src/nodes/game.gd" id="1_ik05v"]
+[ext_resource type="Texture2D" uid="uid://bnfgd6gys3aaj" path="res://assets/health-progress-bar-background.png" id="2_no8ar"]
 [ext_resource type="Script" path="res://src/nodes/cookie_spawner.gd" id="3_0a66y"]
 [ext_resource type="PackedScene" uid="uid://bhgmiw0eo22ii" path="res://src/scenes/cookie.tscn" id="3_iygoq"]
+[ext_resource type="Texture2D" uid="uid://cmpdwp63vq7rv" path="res://assets/health-progress-bar-fill.png" id="3_j8iw8"]
 [ext_resource type="Theme" uid="uid://bj7wlv8i27x8o" path="res://src/theme/space_theme.tres" id="3_xwfab"]
+[ext_resource type="Texture2D" uid="uid://bijgjqpgedp13" path="res://assets/images/s/cookie.png" id="4_8tom7"]
 [ext_resource type="Script" path="res://src/nodes/cleaned_cookies_label.gd" id="5_0rvvv"]
 [ext_resource type="PackedScene" uid="uid://lcvduhoqx63g" path="res://src/scenes/player.tscn" id="5_7tt1p"]
+[ext_resource type="Texture2D" uid="uid://bbt8jer5pe8di" path="res://assets/images/xs/firefox.svg" id="5_h1f4f"]
 [ext_resource type="Script" path="res://src/nodes/consumed_cookies_label.gd" id="5_vflnr"]
 [ext_resource type="Script" path="res://src/nodes/existing_cookies_label.gd" id="6_ckqqm"]
 [ext_resource type="PackedScene" uid="uid://dlbk2w4f6hbnv" path="res://src/scenes/browser.tscn" id="6_iur2d"]
+[ext_resource type="Script" path="res://src/nodes/browser_icon.gd" id="6_nx3jm"]
 [ext_resource type="PackedScene" uid="uid://con0vq264ki3o" path="res://src/scenes/map.tscn" id="6_qrrdu"]
+[ext_resource type="Texture2D" uid="uid://fcvgnlx2ghuk" path="res://assets/energy-progress-bar-background.png" id="6_r08cn"]
 [ext_resource type="Script" path="res://src/nodes/tab_spawner.gd" id="7_cn7lt"]
 [ext_resource type="Script" path="res://src/nodes/ram_bar.gd" id="7_niyik"]
 [ext_resource type="Script" path="res://src/nodes/energy_bar.gd" id="7_njvvk"]
+[ext_resource type="Texture2D" uid="uid://ra86ks6caqp8" path="res://assets/energy-progress-bar-fill.png" id="7_vsydq"]
+[ext_resource type="Texture2D" uid="uid://obdgkjqvb2li" path="res://assets/images/xs/linux.png" id="7_x6h4a"]
 [ext_resource type="Script" path="res://src/nodes/health_bar.gd" id="8_5lroh"]
 [ext_resource type="PackedScene" uid="uid://eopju6x6tftf" path="res://src/scenes/tab.tscn" id="8_6rp2i"]
-[ext_resource type="Script" path="res://src/nodes/score_label.gd" id="10_ymp6j"]
+[ext_resource type="Texture2D" uid="uid://v83ok1vtb7cf" path="res://assets/ram-progress-bar-background.png" id="9_a88cc"]
+[ext_resource type="Script" path="res://src/nodes/player_icon.gd" id="9_fpcrx"]
+[ext_resource type="Texture2D" uid="uid://dho3mxyx6ejhl" path="res://assets/ram-progress-bar-fill.png" id="10_hdosv"]
 [ext_resource type="Texture2D" uid="uid://d34imm5c08wcu" path="res://assets/images/s/pause.svg" id="12_5d33s"]
 [ext_resource type="Script" path="res://src/nodes/pause_button.gd" id="13_157xh"]
-[ext_resource type="Texture2D" uid="uid://cihyak37f0nn7" path="res://assets/status_bar.png" id="13_enf0h"]
-[ext_resource type="Texture2D" uid="uid://y2yedboo6xly" path="res://assets/images/xs/chrome.png" id="14_ixhxv"]
 [ext_resource type="PackedScene" uid="uid://6l0oix4k3s2p" path="res://src/scenes/pause_menu.tscn" id="15_wkwm5"]
+[ext_resource type="Texture2D" uid="uid://vtsah374t5ms" path="res://assets/score-panel.png" id="21_26nau"]
+[ext_resource type="Script" path="res://src/nodes/score_label.gd" id="22_01r68"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_as88t"]
-texture = ExtResource("13_enf0h")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6epmd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8c7jg"]
+texture = ExtResource("21_26nau")
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1q1p5"]
+texture = ExtResource("21_26nau")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ik05v")
 
 [node name="Stickable" type="CanvasLayer" parent="."]
 
-[node name="HealthBar" type="ProgressBar" parent="Stickable"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -37.0
-offset_top = -145.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_colors/font_color = Color(0.686275, 0.498039, 0.121569, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 1
-fill_mode = 3
-script = ExtResource("8_5lroh")
+[node name="ConsumedCookies" type="Panel" parent="Stickable"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 220.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_6epmd")
 
-[node name="EnergyBar" type="ProgressBar" parent="Stickable"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -152.0
-offset_top = -145.0
-offset_right = -115.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = ExtResource("3_xwfab")
-theme_override_constants/outline_size = 1
-fill_mode = 3
-show_percentage = false
-script = ExtResource("7_njvvk")
-
-[node name="RAMBar" type="ProgressBar" parent="Stickable"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -95.0
-offset_top = -145.0
-offset_right = -58.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = ExtResource("3_xwfab")
-theme_override_colors/font_color = Color(0.686275, 0.498039, 0.121569, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 1
-fill_mode = 3
-script = ExtResource("7_niyik")
-
-[node name="ConsumedCookiesLabel" type="RichTextLabel" parent="Stickable"]
-offset_left = 200.0
-offset_right = 383.0
-offset_bottom = 40.0
+[node name="ConsumedCookiesLabel" type="RichTextLabel" parent="Stickable/ConsumedCookies"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 19.0
+offset_right = 210.0
+offset_bottom = 58.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
+theme = ExtResource("3_xwfab")
+theme_override_font_sizes/normal_font_size = 24
+text = "200"
 script = ExtResource("5_vflnr")
 
-[node name="ExistingCookiesLabel" type="RichTextLabel" parent="Stickable"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 150.0
-offset_top = -40.0
-offset_right = 389.0
-grow_vertical = 0
+[node name="CookieIcon" type="TextureRect" parent="Stickable/ConsumedCookies"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 13.0
+offset_right = 102.0
+offset_bottom = 77.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_8tom7")
+
+[node name="BrowserIcon" type="TextureRect" parent="Stickable/ConsumedCookies"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_h1f4f")
+script = ExtResource("6_nx3jm")
+
+[node name="CleanedCookies" type="Panel" parent="Stickable"]
+offset_left = 183.0
+offset_top = 16.0
+offset_right = 387.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_6epmd")
+
+[node name="CleanedCookiesLabel" type="RichTextLabel" parent="Stickable/CleanedCookies"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 19.0
+offset_right = 210.0
+offset_bottom = 58.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
+theme = ExtResource("3_xwfab")
+theme_override_font_sizes/normal_font_size = 24
+text = "200"
+script = ExtResource("5_0rvvv")
+
+[node name="CookieIcon" type="TextureRect" parent="Stickable/CleanedCookies"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 13.0
+offset_right = 102.0
+offset_bottom = 77.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_8tom7")
+
+[node name="PlayerIcon" type="TextureRect" parent="Stickable/CleanedCookies"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_x6h4a")
+script = ExtResource("9_fpcrx")
+
+[node name="Existing Cookies" type="Panel" parent="Stickable"]
+offset_left = 341.0
+offset_top = 16.0
+offset_right = 545.0
+offset_bottom = 98.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_6epmd")
+
+[node name="ExistingCookiesLabel" type="RichTextLabel" parent="Stickable/Existing Cookies"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 19.0
+offset_right = 443.0
+offset_bottom = 91.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("3_xwfab")
+theme_override_font_sizes/normal_font_size = 20
+text = "200"
 script = ExtResource("6_ckqqm")
 
-[node name="CleanedCookiesLabel" type="RichTextLabel" parent="Stickable"]
-offset_left = 20.0
-offset_right = 203.0
-offset_bottom = 40.0
-size_flags_horizontal = 8
-size_flags_vertical = 8
-script = ExtResource("5_0rvvv")
+[node name="CookieIcon" type="TextureRect" parent="Stickable/Existing Cookies"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 80.0
+offset_bottom = 64.0
+texture = ExtResource("4_8tom7")
+
+[node name="Bars" type="Panel" parent="Stickable"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -332.0
+offset_top = -193.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8c7jg")
+
+[node name="HealthBar" type="TextureProgressBar" parent="Stickable/Bars"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -307.0
+offset_top = -172.0
+offset_right = 226.0
+offset_bottom = -79.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+max_value = 50.0
+value = 50.0
+texture_under = ExtResource("2_no8ar")
+texture_progress = ExtResource("3_j8iw8")
+texture_progress_offset = Vector2(5, 5)
+script = ExtResource("8_5lroh")
+
+[node name="EnergyBar" type="TextureProgressBar" parent="Stickable/Bars"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -307.0
+offset_top = -80.0
+offset_right = 226.0
+offset_bottom = 14.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_xwfab")
+value = 50.0
+texture_under = ExtResource("6_r08cn")
+texture_progress = ExtResource("7_vsydq")
+texture_progress_offset = Vector2(5, 5)
+script = ExtResource("7_njvvk")
+
+[node name="RAMBar" type="TextureProgressBar" parent="Stickable/Bars"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -307.0
+offset_top = -125.0
+offset_right = 226.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_xwfab")
+value = 50.0
+texture_under = ExtResource("9_a88cc")
+texture_progress = ExtResource("10_hdosv")
+texture_progress_offset = Vector2(5, 5)
+script = ExtResource("7_niyik")
 
 [node name="PauseButton" type="TextureButton" parent="Stickable"]
 anchors_preset = 1
@@ -140,48 +252,31 @@ offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
 
-[node name="Control" type="Panel" parent="Stickable"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -369.5
-offset_top = 27.0
-offset_right = 369.5
-offset_bottom = 94.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_as88t")
+[node name="Score" type="Panel" parent="Stickable"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -107.0
+offset_right = 358.0
+offset_bottom = -28.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_1q1p5")
 
-[node name="ScoreLabel" type="RichTextLabel" parent="Stickable/Control"]
+[node name="ScoreLabel" type="RichTextLabel" parent="Stickable/Score"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.5
-offset_top = -27.5
-offset_right = 107.5
-offset_bottom = 28.5
-grow_horizontal = 2
+offset_left = 16.0
+offset_top = -18.0
+offset_right = 390.0
+offset_bottom = 18.0
 grow_vertical = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
 theme = ExtResource("3_xwfab")
-script = ExtResource("10_ymp6j")
-
-[node name="ConsumedCookies" type="HBoxContainer" parent="Stickable/Control"]
-layout_mode = 0
-offset_right = 118.0
-offset_bottom = 40.0
-
-[node name="Browser" type="TextureRect" parent="Stickable/Control/ConsumedCookies"]
-layout_mode = 2
-texture = ExtResource("14_ixhxv")
-expand_mode = 2
-
-[node name="Count" type="RichTextLabel" parent="Stickable/Control/ConsumedCookies"]
-layout_mode = 2
-text = "200"
+theme_override_font_sizes/normal_font_size = 24
+text = "Score: 5oo"
+script = ExtResource("22_01r68")
 
 [node name="Pausable" type="Node" parent="."]
 
@@ -208,13 +303,13 @@ grow_horizontal = 1
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
-[connection signal="existing_cookies_updated" from="." to="Stickable/ConsumedCookiesLabel" method="_on_existing_cookies_updated"]
-[connection signal="existing_cookies_updated" from="." to="Stickable/ExistingCookiesLabel" method="_on_existing_cookies_updated"]
-[connection signal="existing_cookies_updated" from="." to="Stickable/CleanedCookiesLabel" method="_on_existing_cookies_updated"]
+[connection signal="existing_cookies_updated" from="." to="Stickable/ConsumedCookies/ConsumedCookiesLabel" method="_on_existing_cookies_updated"]
+[connection signal="existing_cookies_updated" from="." to="Stickable/CleanedCookies/CleanedCookiesLabel" method="_on_existing_cookies_updated"]
+[connection signal="existing_cookies_updated" from="." to="Stickable/Existing Cookies/ExistingCookiesLabel" method="_on_existing_cookies_updated"]
 [connection signal="game_status_updated" from="." to="Stickable/PauseButton" method="_on_game_status_updated"]
-[connection signal="player_energy_updated" from="." to="Stickable/EnergyBar" method="_on_player_energy_updated"]
-[connection signal="player_health_updated" from="." to="Stickable/HealthBar" method="_on_player_health_updated"]
-[connection signal="player_points_updated" from="." to="Stickable/Control/ScoreLabel" method="_on_player_points_updated"]
-[connection signal="ram_updated" from="." to="Stickable/RAMBar" method="_on_ram_updated"]
+[connection signal="player_energy_updated" from="." to="Stickable/Bars/EnergyBar" method="_on_player_energy_updated"]
+[connection signal="player_health_updated" from="." to="Stickable/Bars/HealthBar" method="_on_player_health_updated"]
+[connection signal="player_points_updated" from="." to="Stickable/Score/ScoreLabel" method="_on_player_points_updated"]
+[connection signal="ram_updated" from="." to="Stickable/Bars/RAMBar" method="_on_ram_updated"]
 [connection signal="pressed" from="Stickable/PauseButton" to="Stickable/PauseButton" method="_on_game_paused"]
 [connection signal="spawn_tab" from="Pausable/Browser" to="Pausable/TabSpawner" method="_on_enemy_spawn_tab"]

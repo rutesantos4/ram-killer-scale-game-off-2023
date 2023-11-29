@@ -46,3 +46,6 @@ static var MouseAttackSFX = GameAsset.named("Mouse-Attack")
 static var ElectricalShockSFX = GameAsset.named("Shock")
 static var SpawnSFX = GameAsset.named("Spawn")
 static var TabCleanSFX = GameAsset.named("Tab-Clean")
+
+static func fromSkinAsset(skin: SkinAsset) -> GameAsset:
+	return GameAsset.named(skin.name)
