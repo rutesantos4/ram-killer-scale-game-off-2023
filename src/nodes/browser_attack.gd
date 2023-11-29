@@ -6,6 +6,7 @@ const SPEED: float = 25.0
 const MAX_DISTANCE: float = 500.0
 
 var game_node: GameScene
+var browser_scene: BrowserScene
 var player: Player
 var ram: RAM
 var eletrical_shock: ElectricalShock
@@ -13,6 +14,8 @@ var initial_position: Vector2
 
 func _ready():
 	game_node = get_tree().root.get_node("/root/Game")
+	browser_scene = game_node.get_node("Pausable/Browser")
+	
 	var game: Game = SceneSwitcher.get_game_state()
 	if(game):
 		player = game.player
@@ -31,7 +34,7 @@ func set_attack(eletrical_shock: ElectricalShock):
 	
 func _physics_process(delta):
 	var next_position = position + transform.x * SPEED
-	if(abs(initial_position.distance_to(next_position)) > MAX_DISTANCE):
+	if(abs(initial_position.distance_to(next_position)) > (MAX_DISTANCE * browser_scene.scale.x)):
 		delete()
 	position = next_position
 	eletrical_shock.position = position
