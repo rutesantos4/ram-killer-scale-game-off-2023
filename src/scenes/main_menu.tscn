@@ -148,11 +148,11 @@ theme_override_font_sizes/font_size = 36
 text = "Play"
 script = ExtResource("2_j2q43")
 
-[node name="Options" type="Button" parent="Options/Column"]
+[node name="Help" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_2sugi")
 theme_override_font_sizes/font_size = 36
-text = "Options"
+text = "Help"
 script = ExtResource("2_j2q43")
 
 [node name="Quit" type="Button" parent="Options/Column"]
@@ -166,5 +166,5 @@ script = ExtResource("2_j2q43")
 [connection signal="pressed" from="MuteButton" to="." method="_on_mute_button_pressed"]
 [connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="Options/Column/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Options/Column/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Options/Column/Help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="Options/Column/Quit" to="." method="_on_quit_pressed"]

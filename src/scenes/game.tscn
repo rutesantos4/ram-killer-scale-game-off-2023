@@ -27,6 +27,8 @@
 [ext_resource type="Script" path="res://src/nodes/player_icon.gd" id="9_fpcrx"]
 [ext_resource type="Texture2D" uid="uid://dho3mxyx6ejhl" path="res://assets/ram-progress-bar-fill.png" id="10_hdosv"]
 [ext_resource type="Texture2D" uid="uid://d34imm5c08wcu" path="res://assets/images/s/pause.svg" id="12_5d33s"]
+[ext_resource type="Script" path="res://src/nodes/score_label.gd" id="10_ymp6j"]
+[ext_resource type="PackedScene" uid="uid://ba6smw8lw41gb" path="res://src/scenes/end_game_menu.tscn" id="12_ceu4d"]
 [ext_resource type="Script" path="res://src/nodes/pause_button.gd" id="13_157xh"]
 [ext_resource type="PackedScene" uid="uid://6l0oix4k3s2p" path="res://src/scenes/pause_menu.tscn" id="15_wkwm5"]
 [ext_resource type="Texture2D" uid="uid://vtsah374t5ms" path="res://assets/score-panel.png" id="21_26nau"]
@@ -278,6 +280,9 @@ theme_override_font_sizes/normal_font_size = 24
 text = "Score: 5oo"
 script = ExtResource("22_01r68")
 
+[node name="EndGameMenu" parent="Stickable" instance=ExtResource("12_ceu4d")]
+visible = false
+
 [node name="Pausable" type="Node" parent="."]
 
 [node name="CookieSpawner" type="Node2D" parent="Pausable"]
@@ -311,5 +316,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="player_health_updated" from="." to="Stickable/Bars/HealthBar" method="_on_player_health_updated"]
 [connection signal="player_points_updated" from="." to="Stickable/Score/ScoreLabel" method="_on_player_points_updated"]
 [connection signal="ram_updated" from="." to="Stickable/Bars/RAMBar" method="_on_ram_updated"]
+[connection signal="player_health_updated" from="." to="Stickable/EndGameMenu" method="_on_game_player_health_updated"]
+[connection signal="ram_updated" from="." to="Stickable/EndGameMenu" method="_on_game_ram_updated"]
 [connection signal="pressed" from="Stickable/PauseButton" to="Stickable/PauseButton" method="_on_game_paused"]
 [connection signal="spawn_tab" from="Pausable/Browser" to="Pausable/TabSpawner" method="_on_enemy_spawn_tab"]

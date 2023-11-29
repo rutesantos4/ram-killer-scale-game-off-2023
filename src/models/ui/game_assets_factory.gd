@@ -28,6 +28,8 @@ static var Cookie = GameAsset.named("Cookie")
 static var Pause = GameAsset.named("Pause")
 static var Play = GameAsset.named("Play")
 static var PlayerAttack = GameAsset.named("Cursor")
+static var BrowserAttack = GameAsset.named("Shock")
+
 static var Mute = GameAsset.named("Audio-Mute")
 static var Unmute = GameAsset.named("Audio-Unmute")
 

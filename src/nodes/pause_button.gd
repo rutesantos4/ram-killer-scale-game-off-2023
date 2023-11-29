@@ -25,7 +25,7 @@ func _on_game_paused():
 
 	game_node.game_status_updated.emit() 
 
-func _on_game_status_updated():	
+func _on_game_status_updated():
 	if(game.is_paused()):
 		self.texture_normal = GameAssetsFactory.Play.s()
 		pause_menu.visible = true
@@ -34,3 +34,5 @@ func _on_game_status_updated():
 		self.texture_normal = GameAssetsFactory.Pause.s()
 		pause_menu.visible = false
 		pausable_group.process_mode = Node.PROCESS_MODE_INHERIT
+		
+	if(game.is_finished()): self.visible = false

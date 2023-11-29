@@ -43,7 +43,7 @@ func _on_body_entered(body: Node2D):
 		var tab: Tab = tab_scene.enemy
 		player.close(tab)
 		game_node.player_points_updated.emit()
-		ram.decrease_from_tab_close(tab)
+		ram.decrease(tab.memory_size)
 		browser.tab_closed(tab)
 		browser_scene.scale = browser.get_scale(browser_scene.scale)
 		game_node.ram_updated.emit()

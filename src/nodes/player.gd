@@ -21,11 +21,11 @@ func _ready():
 	player = game.player
 	game_node = get_tree().root.get_node("/root/Game")
 	ram = SceneSwitcher.get_game_state().ram
-	# Set the player image
+	
 	$PlayerSprite2D.texture = player.skin.texture
-	# Set the player position
-	$PlayerSprite2D.position = player.position
-	# Set the player collision radius
+	
+	position = player.position
+	
 	var player_size : Vector2 = $PlayerSprite2D.texture.get_size()
 	var new_shape = CircleShape2D.new()
 	new_shape.radius = max(player_size.x, player_size.y) / 4
@@ -81,8 +81,8 @@ func renew_energy():
 
 func eat_cookie(cookie: Cookie):
 	player.clean(cookie)
-	ram.decrease(cookie)
-	print(player.cleaned_cookies_count)
+	ram.decrease(cookie.memory_size)
+  
 	game_node.ram_updated.emit()
 	game_node.player_points_updated.emit()
 	game_node.existing_cookies_updated.emit()

@@ -26,13 +26,11 @@ func play_sfx(
 	sfx_player.play()
 
 func mute():
-	print("hello")
 	AudioServer.set_bus_mute(AudioServer.get_bus_index(bgm_player.bus), true)
 	AudioServer.set_bus_mute(AudioServer.get_bus_index(sfx_player.bus), true)
 	muted = true
 
 func unmute():
-	print("world")
 	AudioServer.set_bus_mute(AudioServer.get_bus_index(bgm_player.bus), false)
 	AudioServer.set_bus_mute(AudioServer.get_bus_index(sfx_player.bus), false)
 	muted = false

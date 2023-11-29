@@ -2,7 +2,7 @@ extends Enemy
 
 class_name Browser
 
-	
+
 var _shock_skin: SkinAsset
 var spawn_tabs: Array[Tab]
 
@@ -17,7 +17,7 @@ func _init(
 	_shock_skin = shock_skin
 	spawn_tabs = []
 	
-func fire(target_position: Vector2):
+func fire(target_position: Vector2) -> ElectricalShock:
 	return ElectricalShock.new(
 		_shock_skin,
 		position,
