@@ -8,4 +8,4 @@ func _ready():
 	_on_player_points_updated()
 
 func _on_player_points_updated():
-	self.text = "Score: %d" % player.points
+	self.text = "%d" % player.points

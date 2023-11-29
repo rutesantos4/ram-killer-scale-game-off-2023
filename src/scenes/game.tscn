@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://ssr62ur7abft"]
+[gd_scene load_steps=23 format=3 uid="uid://ssr62ur7abft"]
 
 [ext_resource type="Script" path="res://src/nodes/game.gd" id="1_ik05v"]
 [ext_resource type="Script" path="res://src/nodes/cookie_spawner.gd" id="3_0a66y"]
 [ext_resource type="PackedScene" uid="uid://bhgmiw0eo22ii" path="res://src/scenes/cookie.tscn" id="3_iygoq"]
+[ext_resource type="Theme" uid="uid://bj7wlv8i27x8o" path="res://src/theme/space_theme.tres" id="3_xwfab"]
 [ext_resource type="Script" path="res://src/nodes/cleaned_cookies_label.gd" id="5_0rvvv"]
 [ext_resource type="PackedScene" uid="uid://lcvduhoqx63g" path="res://src/scenes/player.tscn" id="5_7tt1p"]
 [ext_resource type="Script" path="res://src/nodes/consumed_cookies_label.gd" id="5_vflnr"]
@@ -15,9 +16,14 @@
 [ext_resource type="Script" path="res://src/nodes/health_bar.gd" id="8_5lroh"]
 [ext_resource type="PackedScene" uid="uid://eopju6x6tftf" path="res://src/scenes/tab.tscn" id="8_6rp2i"]
 [ext_resource type="Script" path="res://src/nodes/score_label.gd" id="10_ymp6j"]
-[ext_resource type="Texture2D" uid="uid://dt4wuiavo5d84" path="res://assets/images/s/pause.png" id="12_5d33s"]
+[ext_resource type="Texture2D" uid="uid://d34imm5c08wcu" path="res://assets/images/s/pause.svg" id="12_5d33s"]
 [ext_resource type="Script" path="res://src/nodes/pause_button.gd" id="13_157xh"]
+[ext_resource type="Texture2D" uid="uid://cihyak37f0nn7" path="res://assets/status_bar.png" id="13_enf0h"]
+[ext_resource type="Texture2D" uid="uid://y2yedboo6xly" path="res://assets/images/xs/chrome.png" id="14_ixhxv"]
 [ext_resource type="PackedScene" uid="uid://6l0oix4k3s2p" path="res://src/scenes/pause_menu.tscn" id="15_wkwm5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_as88t"]
+texture = ExtResource("13_enf0h")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ik05v")
@@ -52,11 +58,10 @@ offset_top = -145.0
 offset_right = -115.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 0, 0.0862745, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme = ExtResource("3_xwfab")
 theme_override_constants/outline_size = 1
 fill_mode = 3
+show_percentage = false
 script = ExtResource("7_njvvk")
 
 [node name="RAMBar" type="ProgressBar" parent="Stickable"]
@@ -70,6 +75,7 @@ offset_top = -145.0
 offset_right = -58.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("3_xwfab")
 theme_override_colors/font_color = Color(0.686275, 0.498039, 0.121569, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -105,19 +111,6 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("5_0rvvv")
 
-[node name="ScoreLabel" type="RichTextLabel" parent="Stickable"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = -41.0
-offset_right = 203.0
-offset_bottom = -1.0
-grow_vertical = 0
-size_flags_horizontal = 8
-size_flags_vertical = 8
-script = ExtResource("10_ymp6j")
-
 [node name="PauseButton" type="TextureButton" parent="Stickable"]
 anchors_preset = 1
 anchor_left = 1.0
@@ -137,6 +130,58 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Cookie" type="TextureRect" parent="Stickable"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Control" type="Panel" parent="Stickable"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -369.5
+offset_top = 27.0
+offset_right = 369.5
+offset_bottom = 94.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_as88t")
+
+[node name="ScoreLabel" type="RichTextLabel" parent="Stickable/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = -27.5
+offset_right = 107.5
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("3_xwfab")
+script = ExtResource("10_ymp6j")
+
+[node name="ConsumedCookies" type="HBoxContainer" parent="Stickable/Control"]
+layout_mode = 0
+offset_right = 118.0
+offset_bottom = 40.0
+
+[node name="Browser" type="TextureRect" parent="Stickable/Control/ConsumedCookies"]
+layout_mode = 2
+texture = ExtResource("14_ixhxv")
+expand_mode = 2
+
+[node name="Count" type="RichTextLabel" parent="Stickable/Control/ConsumedCookies"]
+layout_mode = 2
+text = "200"
 
 [node name="Pausable" type="Node" parent="."]
 
@@ -169,7 +214,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="game_status_updated" from="." to="Stickable/PauseButton" method="_on_game_status_updated"]
 [connection signal="player_energy_updated" from="." to="Stickable/EnergyBar" method="_on_player_energy_updated"]
 [connection signal="player_health_updated" from="." to="Stickable/HealthBar" method="_on_player_health_updated"]
-[connection signal="player_points_updated" from="." to="Stickable/ScoreLabel" method="_on_player_points_updated"]
+[connection signal="player_points_updated" from="." to="Stickable/Control/ScoreLabel" method="_on_player_points_updated"]
 [connection signal="ram_updated" from="." to="Stickable/RAMBar" method="_on_ram_updated"]
 [connection signal="pressed" from="Stickable/PauseButton" to="Stickable/PauseButton" method="_on_game_paused"]
 [connection signal="spawn_tab" from="Pausable/Browser" to="Pausable/TabSpawner" method="_on_enemy_spawn_tab"]
