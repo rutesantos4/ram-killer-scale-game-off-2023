@@ -31,7 +31,7 @@ func move_enemy():
 		move_to_cookie()
 
 func is_player_in_sight():
-	return get_current_position().distance_to(player_position()) <= IN_SIGHT_DISTANCE_LIMIT
+	return get_current_position().distance_to(player_position()) <= (IN_SIGHT_DISTANCE_LIMIT * get_scale_width())
 
 func player_position():
 	return player.position
@@ -90,5 +90,8 @@ func eat_cookie(cookie: Cookie):
 func reset_closest_cookie():
 	closest_cookie_in_sight = null
 
-func get_all_cookies():
+func get_all_cookies() -> Array[Node]:
 	return get_tree().get_nodes_in_group("Cookie")
+
+func get_scale_width() -> float:
+	return self.scale.x
