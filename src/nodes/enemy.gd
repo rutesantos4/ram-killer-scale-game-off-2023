@@ -48,7 +48,7 @@ func move_to_cookie():
 		velocity = move_direction * SPEED
 
 func get_current_position():
-	return global_position + enemy.initial_position * self.scale
+	return global_position
 
 func closest_cookie():
 	if(closest_cookie_in_sight):

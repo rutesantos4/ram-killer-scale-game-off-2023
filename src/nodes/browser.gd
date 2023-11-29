@@ -17,17 +17,14 @@ func _ready():
 	super._ready();
 	enemy = SceneSwitcher.get_game_state().enemy
 	
-	var _position = enemy.position
 	$EnemySprite2D.texture = enemy.skin.texture
-	$EnemySprite2D.position = _position
+	
+	position = enemy.position
 	
 	var enemy_size : Vector2 = $EnemySprite2D.texture.get_size()
 	var new_shape = CircleShape2D.new()
 	new_shape.radius = max(enemy_size.x, enemy_size.y) / 4
 	$Area2D/CollisionShape2D.shape = new_shape
-	
-	$Area2D/CollisionShape2D.position = _position
-	$CollisionShape2D.position = _position
 	
 	time_passed = 0
 
@@ -58,7 +55,7 @@ func shoot_player():
 	var eletrical_shock: ElectricalShock = browser.fire(target_position)
 	
 	attack_point.look_at(target_position)
-	attack_point.position = position + browser.initial_position
+	attack_point.position = get_current_position()            
 	
 	var attack: BrowserAttackScene = browser_attack.instantiate()
 	attack.transform = attack_point.global_transform
