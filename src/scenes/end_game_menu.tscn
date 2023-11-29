@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba6smw8lw41gb"]
+
+[ext_resource type="Script" path="res://src/scenes/end_game_menu.gd" id="1_ej8cp"]
+[ext_resource type="Script" path="res://src/nodes/theme/textured_button.gd" id="1_nx5xi"]
+
+[node name="EndGameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ej8cp")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+vertical = true
+
+[node name="ScoreContainer" type="MarginContainer" parent="BoxContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/ScoreContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="GameOverLabel" type="RichTextLabel" parent="BoxContainer/ScoreContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game Over!"
+fit_content = true
+scroll_active = false
+
+[node name="ButtonsContainer" type="MarginContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/ButtonsContainer"]
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="BoxContainer/ButtonsContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+script = ExtResource("1_nx5xi")
+
+[node name="MainMenu" type="Button" parent="BoxContainer/ButtonsContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+script = ExtResource("1_nx5xi")
+
+[node name="Quit" type="Button" parent="BoxContainer/ButtonsContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("1_nx5xi")
+
+[connection signal="pressed" from="BoxContainer/ButtonsContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="BoxContainer/ButtonsContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="BoxContainer/ButtonsContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -13,7 +13,9 @@ var initial_position: Vector2
 
 func _ready():
 	game_node = get_tree().root.get_node("/root/Game")
-	player = SceneSwitcher.get_game_state().player
+	var game: Game = SceneSwitcher.get_game_state()
+	if(game):
+		player = game.player
 	initial_position = position
 
 func set_texture_and_collision(texture: Texture2D):
