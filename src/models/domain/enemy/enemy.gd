@@ -4,11 +4,11 @@ class_name Enemy
 
 const SCALE_INCREASE_PERCENTAGE = 2.5
 
-var previous_memory_size = 2.5
-
 var initial_memory_size: float
 var memory_size: float
+var previous_memory_size: float
 var consumed_cookies_count: float
+var initial_position: Vector2
 
 func _init(
 	skin: SkinAsset,
@@ -21,6 +21,7 @@ func _init(
 	self.memory_size = initial_memory_size
 	self.previous_memory_size = initial_memory_size
 	self.consumed_cookies_count = 0
+	self.initial_position = initial_position
 
 func consume(cookie: Cookie):
 	memory_size += cookie.memory_size

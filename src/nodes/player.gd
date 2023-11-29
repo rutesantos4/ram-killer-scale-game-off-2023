@@ -21,11 +21,11 @@ func _ready():
 	player = game.player
 	game_node = get_tree().root.get_node("/root/Game")
 	ram = SceneSwitcher.get_game_state().ram
-	# Set the player image
+	
 	$PlayerSprite2D.texture = player.skin.texture
-	# Set the player position
-	$PlayerSprite2D.position = player.position
-	# Set the player collision radius
+	
+	position = player.position
+	
 	var player_size : Vector2 = $PlayerSprite2D.texture.get_size()
 	var new_shape = CircleShape2D.new()
 	new_shape.radius = max(player_size.x, player_size.y) / 4
