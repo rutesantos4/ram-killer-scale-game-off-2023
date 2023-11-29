@@ -34,7 +34,7 @@ func set_attack(eletrical_shock: ElectricalShock):
 	
 func _physics_process(delta):
 	var next_position = position + transform.x * SPEED
-	if(abs(initial_position.distance_to(next_position)) > (MAX_DISTANCE * browser_scene.scale.x)):
+	if(abs(initial_position.distance_to(next_position)) > (MAX_DISTANCE * browser_scene.get_scale_width())):
 		delete()
 	position = next_position
 	eletrical_shock.position = position
