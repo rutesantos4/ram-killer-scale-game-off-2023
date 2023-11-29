@@ -34,9 +34,9 @@ layout_mode = 2
 text = "Play"
 script = ExtResource("2_j2q43")
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Help" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Options"
+text = "Help"
 script = ExtResource("2_j2q43")
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -45,5 +45,5 @@ text = "Quit"
 script = ExtResource("2_j2q43")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

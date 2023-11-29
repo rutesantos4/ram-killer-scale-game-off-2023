@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ba6smw8lw41gb"]
 
-[ext_resource type="Script" path="res://src/scenes/end_game_menu.gd" id="1_ej8cp"]
+[ext_resource type="Script" path="res://src/models/domain/end_game_menu.gd" id="1_ej8cp"]
 [ext_resource type="Script" path="res://src/nodes/theme/textured_button.gd" id="1_nx5xi"]
 
 [node name="EndGameMenu" type="Control"]
