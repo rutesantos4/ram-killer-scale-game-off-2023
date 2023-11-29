@@ -81,7 +81,7 @@ func renew_energy():
 
 func eat_cookie(cookie: Cookie):
 	player.clean(cookie)
-	ram.decrease(cookie)
+	ram.decrease(cookie.memory_size)
 	game_node.ram_updated.emit()
 	game_node.player_points_updated.emit()
 	game_node.existing_cookies_updated.emit()
