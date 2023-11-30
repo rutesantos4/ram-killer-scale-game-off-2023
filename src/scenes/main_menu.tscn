@@ -1,7 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://qqjucvuxim8l"]
+[gd_scene load_steps=14 format=3 uid="uid://qqjucvuxim8l"]
 
 [ext_resource type="Script" path="res://src/nodes/main_menu.gd" id="1_1ujbe"]
+[ext_resource type="Theme" uid="uid://bj7wlv8i27x8o" path="res://src/theme/space_theme.tres" id="2_2sugi"]
 [ext_resource type="Script" path="res://src/nodes/theme/textured_button.gd" id="2_j2q43"]
+[ext_resource type="Texture2D" uid="uid://ba3o7c6ulx774" path="res://assets/images/s/help.svg" id="3_03553"]
+[ext_resource type="Texture2D" uid="uid://b24u2n50ue8qj" path="res://assets/images/s/info.svg" id="3_y6lpf"]
+[ext_resource type="Texture2D" uid="uid://cf1absoqi06ao" path="res://assets/images/xl/background-main-menu.jpeg" id="4_bpu7q"]
+[ext_resource type="Texture2D" uid="uid://bj1l22d4qinmm" path="res://assets/images/s/audio-mute.svg" id="4_u6mfp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_amt1h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_of7r8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exbqt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1l73"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pev2l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b8lg7"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -11,39 +28,143 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1ujbe")
+metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_bpu7q")
+
+[node name="InfoButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 88.0
+offset_bottom = 88.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_amt1h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_of7r8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_exbqt")
+theme_override_styles/focus = SubResource("StyleBoxTexture_g1l73")
+icon = ExtResource("3_y6lpf")
+
+[node name="MuteButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = 16.0
+offset_right = -17.0
+offset_bottom = 88.0
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_pev2l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_of7r8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b8lg7")
+theme_override_styles/focus = SubResource("StyleBoxTexture_g1l73")
+icon = ExtResource("4_u6mfp")
+
+[node name="HelpButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -114.0
+offset_right = -17.0
+offset_bottom = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_pev2l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_of7r8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b8lg7")
+theme_override_styles/focus = SubResource("StyleBoxTexture_g1l73")
+icon = ExtResource("3_03553")
+
+[node name="GameTitle" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -310.5
+offset_right = 310.5
+offset_bottom = 83.0
+grow_horizontal = 2
+theme = ExtResource("2_2sugi")
+theme_override_font_sizes/normal_font_size = 72
+text = "RAM KILLER"
+scroll_active = false
+
+[node name="Options" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -50.5
-offset_right = 35.0
-offset_bottom = 50.5
+offset_left = -149.0
+offset_top = -151.5
+offset_right = 149.0
+offset_bottom = 151.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_2sugi")
+
+[node name="Label" type="RichTextLabel" parent="Options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.5
+offset_right = 101.5
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Options"
+
+[node name="Column" type="VBoxContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = -74.0
+offset_right = 137.5
+offset_bottom = 74.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Play" type="Button" parent="Options/Column"]
 layout_mode = 2
-
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
+theme = ExtResource("2_2sugi")
+theme_override_font_sizes/font_size = 36
 text = "Play"
 script = ExtResource("2_j2q43")
 
-[node name="Help" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Help" type="Button" parent="Options/Column"]
 layout_mode = 2
+theme = ExtResource("2_2sugi")
+theme_override_font_sizes/font_size = 36
 text = "Help"
 script = ExtResource("2_j2q43")
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="Options/Column"]
 layout_mode = 2
+theme = ExtResource("2_2sugi")
+theme_override_font_sizes/font_size = 36
 text = "Quit"
 script = ExtResource("2_j2q43")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Help" to="." method="_on_help_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="InfoButton" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="MuteButton" to="." method="_on_mute_button_pressed"]
+[connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="Options/Column/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Options/Column/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="Options/Column/Quit" to="." method="_on_quit_pressed"]

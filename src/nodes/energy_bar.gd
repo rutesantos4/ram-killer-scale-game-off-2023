@@ -1,4 +1,4 @@
-extends ProgressBar
+extends TextureProgressBar
 
 var player: Player
 

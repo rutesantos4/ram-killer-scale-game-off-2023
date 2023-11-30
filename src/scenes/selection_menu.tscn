@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://o00fipeg4wm"]
+[gd_scene load_steps=5 format=3 uid="uid://o00fipeg4wm"]
 
 [ext_resource type="Script" path="res://src/nodes/selection_menu.gd" id="1_govjd"]
+[ext_resource type="Theme" uid="uid://bj7wlv8i27x8o" path="res://src/theme/space_theme.tres" id="2_18imx"]
+[ext_resource type="Texture2D" uid="uid://cf1absoqi06ao" path="res://assets/images/xl/background-main-menu.jpeg" id="2_l6lkx"]
 [ext_resource type="Script" path="res://src/nodes/theme/textured_button.gd" id="2_n2nxl"]
 
 [node name="Selection Menu" type="Control"]
@@ -11,48 +13,103 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_govjd")
-option_button_operating_system_path = NodePath("MarginContainer/VBoxContainer/Operating system mascot")
-option_button_browser_to_fight_path = NodePath("MarginContainer/VBoxContainer/Browser to fight")
-option_button_map_path = NodePath("MarginContainer/VBoxContainer/Map")
+option_button_operating_system_path = NodePath("Options/Column/Operating system mascot")
+option_button_browser_to_fight_path = NodePath("Options/Column/Browser to fight")
+option_button_map_path = NodePath("Options/Column/Map")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -700.0
+offset_right = 448.0
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l6lkx")
+
+[node name="Options" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -89.5
-offset_top = -75.0
-offset_right = 89.5
-offset_bottom = 75.0
+offset_left = -282.0
+offset_top = -249.0
+offset_right = 290.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_18imx")
+
+[node name="Label" type="RichTextLabel" parent="Options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -246.0
+offset_top = 17.0
+offset_right = 246.0
+offset_bottom = 59.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Choose your Style"
+
+[node name="Column" type="VBoxContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -107.0
+offset_right = 230.0
+offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Operating system mascot" type="OptionButton" parent="Options/Column"]
 layout_mode = 2
-
-[node name="Operating system mascot" type="OptionButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/arrow_margin = 32
+theme_override_font_sizes/font_size = 24
 expand_icon = true
 
-[node name="Browser to fight" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+[node name="Browser to fight" type="OptionButton" parent="Options/Column"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/arrow_margin = 32
+theme_override_font_sizes/font_size = 24
 
-[node name="Map" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+[node name="Map" type="OptionButton" parent="Options/Column"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/arrow_margin = 32
+theme_override_font_sizes/font_size = 24
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Options/Column"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Play" type="Button" parent="Options/Column"]
+layout_mode = 2
+theme = ExtResource("2_18imx")
+theme_override_font_sizes/font_size = 32
 text = "Play"
 script = ExtResource("2_n2nxl")
 
-[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Back" type="Button" parent="Options/Column"]
 layout_mode = 2
+theme = ExtResource("2_18imx")
+theme_override_font_sizes/font_size = 32
 text = "Back"
 script = ExtResource("2_n2nxl")
 
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/Operating system mascot" to="." method="_on_operating_system_mascot_item_selected"]
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/Browser to fight" to="." method="_on_browser_to_fight_item_selected"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="item_selected" from="Options/Column/Operating system mascot" to="." method="_on_operating_system_mascot_item_selected"]
+[connection signal="item_selected" from="Options/Column/Browser to fight" to="." method="_on_browser_to_fight_item_selected"]
+[connection signal="pressed" from="Options/Column/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Options/Column/Back" to="." method="_on_back_pressed"]

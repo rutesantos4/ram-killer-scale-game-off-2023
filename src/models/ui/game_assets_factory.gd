@@ -30,6 +30,9 @@ static var Play = GameAsset.named("Play")
 static var PlayerAttack = GameAsset.named("Cursor")
 static var BrowserAttack = GameAsset.named("Shock")
 
+static var Mute = GameAsset.named("Audio-Mute")
+static var Unmute = GameAsset.named("Audio-Unmute")
+
 static var MainMenuBGM = GameAsset.named("Main-Menu")
 static var GameBGM = GameAsset.named("Game")
 
@@ -45,3 +48,6 @@ static var MouseAttackSFX = GameAsset.named("Mouse-Attack")
 static var ElectricalShockSFX = GameAsset.named("Shock")
 static var SpawnSFX = GameAsset.named("Spawn")
 static var TabCleanSFX = GameAsset.named("Tab-Clean")
+
+static func fromSkinAsset(skin: SkinAsset) -> GameAsset:
+	return GameAsset.named(skin.name)

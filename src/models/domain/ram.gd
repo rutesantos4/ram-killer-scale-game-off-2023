@@ -21,7 +21,6 @@ func increase(cookie: Cookie):
 	
 func decrease(value: float):
 	if(can_decrease()): 
-		print("value ", value)
 		current_memory_size -= value
 
 func has_surpassed_threshold() -> bool:

@@ -10,4 +10,4 @@ func _ready():
 	_on_existing_cookies_updated()
 
 func _on_existing_cookies_updated():
-	self.text = "Consumed Cookies: %d" % browser.consumed_cookies_count
+	self.text = "%d" % browser.consumed_cookies_count

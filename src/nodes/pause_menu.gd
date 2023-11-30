@@ -6,6 +6,7 @@ var game_node: Node
 func _ready():
 	game = SceneSwitcher.get_game_state()
 	game_node = get_tree().current_scene
+	set_mute_button_text()
 
 func resume():
 	game.resume()
@@ -14,10 +15,16 @@ func resume():
 func mute():
 	if(AudioScene.is_muted()):
 		AudioScene.unmute()
-		$MarginContainer/VBoxContainer/Mute.text = "Mute"
 	else:
 		AudioScene.mute()
-		$MarginContainer/VBoxContainer/Mute.text = "Unmuted"
+	
+	set_mute_button_text()
+
+func set_mute_button_text():
+	if(not AudioScene.is_muted()):
+		$Options/Column/Mute.text = "Mute"
+	else:
+		$Options/Column/Mute.text = "Unmute"
 	
 func quit():
 	game.end()
