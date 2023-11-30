@@ -148,7 +148,7 @@ theme_override_font_sizes/font_size = 36
 text = "Play"
 script = ExtResource("2_j2q43")
 
-[node name="Help" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Help" type="Button" parent="Options/Column"]
 layout_mode = 2
 theme = ExtResource("2_2sugi")
 theme_override_font_sizes/font_size = 36

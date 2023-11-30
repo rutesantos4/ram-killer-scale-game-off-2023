@@ -26,7 +26,7 @@ func _on_mute_button_pressed():
 
 
 func _on_help_button_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://src/scenes/help_menu.tscn")
 
 
 func _on_info_button_pressed():

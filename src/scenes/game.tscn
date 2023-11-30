@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ssr62ur7abft"]
+[gd_scene load_steps=36 format=3 uid="uid://ssr62ur7abft"]
 
 [ext_resource type="Script" path="res://src/nodes/game.gd" id="1_ik05v"]
 [ext_resource type="Texture2D" uid="uid://bnfgd6gys3aaj" path="res://assets/health-progress-bar-background.png" id="2_no8ar"]
@@ -27,7 +27,6 @@
 [ext_resource type="Script" path="res://src/nodes/player_icon.gd" id="9_fpcrx"]
 [ext_resource type="Texture2D" uid="uid://dho3mxyx6ejhl" path="res://assets/ram-progress-bar-fill.png" id="10_hdosv"]
 [ext_resource type="Texture2D" uid="uid://d34imm5c08wcu" path="res://assets/images/s/pause.svg" id="12_5d33s"]
-[ext_resource type="Script" path="res://src/nodes/score_label.gd" id="10_ymp6j"]
 [ext_resource type="PackedScene" uid="uid://ba6smw8lw41gb" path="res://src/scenes/end_game_menu.tscn" id="12_ceu4d"]
 [ext_resource type="Script" path="res://src/nodes/pause_button.gd" id="13_157xh"]
 [ext_resource type="PackedScene" uid="uid://6l0oix4k3s2p" path="res://src/scenes/pause_menu.tscn" id="15_wkwm5"]
@@ -176,7 +175,6 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
-max_value = 50.0
 value = 50.0
 texture_under = ExtResource("2_no8ar")
 texture_progress = ExtResource("3_j8iw8")
@@ -314,9 +312,9 @@ metadata/_edit_use_anchors_ = true
 [connection signal="game_status_updated" from="." to="Stickable/PauseButton" method="_on_game_status_updated"]
 [connection signal="player_energy_updated" from="." to="Stickable/Bars/EnergyBar" method="_on_player_energy_updated"]
 [connection signal="player_health_updated" from="." to="Stickable/Bars/HealthBar" method="_on_player_health_updated"]
+[connection signal="player_health_updated" from="." to="Stickable/EndGameMenu" method="_on_game_player_health_updated"]
 [connection signal="player_points_updated" from="." to="Stickable/Score/ScoreLabel" method="_on_player_points_updated"]
 [connection signal="ram_updated" from="." to="Stickable/Bars/RAMBar" method="_on_ram_updated"]
-[connection signal="player_health_updated" from="." to="Stickable/EndGameMenu" method="_on_game_player_health_updated"]
 [connection signal="ram_updated" from="." to="Stickable/EndGameMenu" method="_on_game_ram_updated"]
 [connection signal="pressed" from="Stickable/PauseButton" to="Stickable/PauseButton" method="_on_game_paused"]
 [connection signal="spawn_tab" from="Pausable/Browser" to="Pausable/TabSpawner" method="_on_enemy_spawn_tab"]

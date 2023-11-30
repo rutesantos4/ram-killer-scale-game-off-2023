@@ -9,38 +9,6 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_jqrgn")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -89.5
-offset_top = -75.0
-offset_right = 89.5
-offset_bottom = 75.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Resume"
-script = ExtResource("2_25tna")
-
-[node name="Mute" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Mute"
-script = ExtResource("2_25tna")
-
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-script = ExtResource("2_25tna")
-
 [node name="Options" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -103,9 +71,6 @@ theme_override_font_sizes/font_size = 36
 text = "Quit"
 script = ExtResource("2_25tna")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="resume"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Mute" to="." method="mute"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="quit"]
 [connection signal="pressed" from="Options/Column/Resume" to="." method="resume"]
 [connection signal="pressed" from="Options/Column/Mute" to="." method="mute"]
 [connection signal="pressed" from="Options/Column/Quit" to="." method="quit"]
